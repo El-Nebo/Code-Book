@@ -69,7 +69,10 @@ app.post('/signup',(req,res)=>{
     });    
 });
 
-
+//TO TEST problem.ejs ONLY 
+app.get('/problemId',(req,res)=>{
+    res.render('problem');
+})
 
 
 // if the request reach to this then there are 404
