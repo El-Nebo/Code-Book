@@ -3,6 +3,12 @@ const express = require('express');
 const fs = require('fs');
 const app = express();
 
+const problemset=require('./routes/problemset');
+const signup=require('./routes/signup');
+const articles=require('./routes/articles');
+const contests=require('./routes/contests');
+const login=require('./routes/login');
+const contact=require('./routes/contact');
 
 //connect to database
 // var mysql      = require('mysql');
@@ -29,46 +35,18 @@ app.use(express.urlencoded({extended:true}));
 app.get('/',(req,res)=>{
     res.render('index');
 })
-app.get('/articles',(req,res)=>{
-    res.render('articles');
-})
-app.get('/problemset',(req,res)=>{
-    res.render('problemset');
-})
-app.get('/contests',(req,res)=>{
-    res.render('contests');
-})
-app.get('/contact',(req,res)=>{
-    res.render('contact');
-})
-app.get('/login',(req,res)=>{
-    res.render('login');
-})
-app.get('/signup',(req,res)=>{
-    res.render('signup');
-})
-app.post('/signup',(req,res)=>{
+app.use(articles);
+app.use(contests);
+app.use(problemset);
+app.use(login);
+app.use(signup);
+app.use(contact);
 
-    //1- check there are not exist email
-    let emailExist =`select * from user where email ="${req.body.email}" or username="${req.body.username}"`;
-    connection.query(emailExist,  (error, results, fields)=> {
-        if (error) res.send(error);
-        //res.render('/Blogs'); 
-        if(!results[0])// not exist
-        {
-            let query=`insert into user values("${req.body.username}","${req.body.email}","${req.body.password}")`;
-            connection.query(query,  (error, results, fields)=> {
-                if (error) res.send(error);
-                //res.render('/Blogs'); 
-                res.send("sign up successfully");
-            });
-        }
-        else
-            res.send("email exists");
 
-    });    
-});
 
+
+
+//TO TEST problem.ejs ONLY 
 
 
 
