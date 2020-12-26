@@ -5,14 +5,14 @@ const app = express();
 
 
 //connect to database
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'password',
-  database : 'users',
-  insecureAuth : true
-});
+// var mysql      = require('mysql');
+// var connection = mysql.createConnection({
+//   host     : 'localhost',
+//   user     : 'root',
+//   password : 'password',
+//   database : 'users',
+//   insecureAuth : true
+// });
  
 
 
