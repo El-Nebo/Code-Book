@@ -5,4 +5,7 @@ router.get('/problemset',(req,res)=>{
 router.get('/problemId',(req,res)=>{
     res.render('problem');
 })
+router.get('/createproblem',(req,res)=>{
+    res.render('createproblem');
+})
 module.exports = router;

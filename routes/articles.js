@@ -5,4 +5,7 @@ router.get('/articles',(req,res)=>{
 router.get('/ArticleId',(req,res)=>{
     res.render('article');
 })
+router.get('/createarticle',(req,res)=>{
+    res.render("createarticle.ejs");
+})
 module.exports = router;
