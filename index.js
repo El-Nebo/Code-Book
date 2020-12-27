@@ -25,7 +25,9 @@ const contact=require('./routes/contact');
 app.set('view engine','ejs');
 
 // listen for request
-app.listen(5000);
+app.listen(5000,()=>{
+    console.log("Server started on port 5000");
+});
 
 // set a static files
 app.use(express.static('public'));
@@ -46,8 +48,19 @@ app.use(contact);
 
 
 
-//TO TEST problem.ejs ONLY 
-
+//TO TEST ONLY 
+app.get('/teams',(req,res)=>{
+    res.render('teams');
+});
+app.get('/groups',(req,res)=>{
+    res.render('groups');
+});
+app.get('/createteam',(req,res)=>{
+    res.render('createteam');
+});
+app.get('/creategroup',(req,res)=>{
+    res.render('creategroup');
+});
 
 
 // if the request reach to this then there are 404
