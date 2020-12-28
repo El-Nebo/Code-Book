@@ -9,6 +9,7 @@ const articles=require('./routes/articles');
 const contests=require('./routes/contests');
 const login=require('./routes/login');
 const contact=require('./routes/contact');
+const profile=require("./routes/profile");
 
 //connect to database
 // var mysql      = require('mysql');
@@ -41,7 +42,7 @@ app.use(problemset);
 app.use(login);
 app.use(signup);
 app.use(contact);
-
+app.use(profile);
 
 
 

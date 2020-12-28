@@ -24,6 +24,9 @@
 	  }
 // Reset.
 // Based on meyerweb.com/eric/tools/css/reset (v2.0 | 20110126 | License: public domain)
+	  *{
+		  box-sizing: border-box;
+	  }
 	html, body, div, span, applet, object,
 	iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 	pre, a, abbr, acronym, address, big, cite,
@@ -102,6 +105,9 @@
 	}
 	.mt-em{
 		margin-top: 1em;
+	}
+	.row{
+		margin: 0;
 	}
 /* Basic */
 
