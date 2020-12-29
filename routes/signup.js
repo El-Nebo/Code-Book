@@ -2,7 +2,7 @@ const router = require('express').Router();
 const connection=require('./server');
 const bcrypt=require('bcryptjs');
 router.get('/signup',(req,res)=>{
-    res.render('signup');
+    res.render('signup',{Current_Nav:'__'});
 })
 router.post('/signup',async(req,res)=>{
 

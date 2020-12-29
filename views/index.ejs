@@ -3,110 +3,63 @@
 tinypng
 -->
 <html>
-	<head>
-		<title>
-			Code Book
-		</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-		
-		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!-- <script src="https://kit.fontawesome.com/85999f6d09.js" crossorigin="anonymous"></script> -->
 
-	</head>
-	<body class="">
-		<!-- Nav tabs -->
-		<nav id='navbar' class="navbar navbar-expand-sm navbar-dark bg-dark navbar-light">
-			<div class="container ">
-			  <a href="/" class="navbar-brand d-inline-block justify-content-center">
-					Code Book
-			  </a>
-			  <button class="navbar-toggler " data-toggle="collapse" data-target="#navv">
-				<span class="navbar-toggler-icon "></span>
-			  </button>
-			  <div id="navv" class="collapse navbar-collapse justify-content-between">
-				<ul class="navbar-nav ">
-				  <li class="nav-item active">
-					<a href="/" class="nav-link">Home</a>
-				  </li>
-				  <li class="nav-item hvr-underline-from-left">
-					<a href="problemset" class="nav-link">Problem Set</a>
-				  </li>
-				  <li class="nav-item hvr-underline-from-left">
-					<a href="contests" class="nav-link">Contests</a>
-				  </li>
-				  <li class="nav-item hvr-underline-from-left">
-					<a href="articles" class="nav-link">Articles</a>
-				  </li>
-				  <li class="nav-item hvr-underline-from-left">
-					<a href="contact" class="nav-link">Contact</a>
-				  </li>
-				</ul>
-				
-				<ul class="navbar-nav ">
-					
-                   
-					<%if(typeof user !== 'undefined'){%>
-						<li class="nav-item">
-							<a href="profile" class="nav-link">Gaser Ashraf</a>
-						</li>
-						
-						<li class="nav-item">
-							<a href="logout" class="nav-link">logout</a>
-						</li>
-					
-					<%}else {%> 
-						<li class="nav-item">
-							<a href="login" class="nav-link">Log In</a>
-						</li>
-						<span class="slash">/</span>
-						<li class="nav-item">
-							<a href="signup" class="nav-link">Sign Up</a>
-						</li>
-					<%}%>
-				</ul>
-				
-			  </div>
-			</div>
-		  </nav>
+<head>
+	<title>
+		Code Book
+	</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!-- <script src="https://kit.fontawesome.com/85999f6d09.js" crossorigin="anonymous"></script> -->
+
+</head>
+
+<body class="">
+	<!-- Nav tabs -->
+
+	<%- include('./partials/nav.ejs') %>
+
 		<section>
 
 		</section>
 
 		<!-- Scripts -->
-		
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script> -->
 
-			<script src="assets/js/bootstrap.min.js"></script>
-			
-			<script src="assets/js/main.js"></script>
-		
-			<script>
-		
+		<script src="assets/js/bootstrap.min.js"></script>
+
+		<script src="assets/js/main.js"></script>
+
+		<script>
+
 				// $('body').scrollspy({target:'#nav'})
-	
+
 				// // Smooth Scrolling
 				// $("nav a").on('click', function (event) {
 				// if (this.hash !== "") {
 				// 	event.preventDefault();
-	
+
 				// 	const hash = this.hash;
-	
+
 				// 	$('html, body').animate({
 				// 	scrollTop: $(hash).offset().top
 				// 	}, 800, function () {
-	
+
 				// 	//window.location.hash = hash;
 				// 	});
 				// }
 				// });
-			</script>
-	</body>
+		</script>
+</body>
+
 </html>

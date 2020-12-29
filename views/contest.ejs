@@ -14,163 +14,113 @@ tinypng
 
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/main.css" />
-	 <script src="https://kit.fontawesome.com/85999f6d09.js" crossorigin="anonymous"></script> 
+	<script src="https://kit.fontawesome.com/85999f6d09.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body class="">
 	<!-- Nav tabs -->
-	<nav id='navbar' class="navbar navbar-expand-sm navbar-dark bg-dark navbar-light">
-		<div class="container ">
-			<a href="/" class="navbar-brand d-inline-block justify-content-center">
-				Code Book
-			</a>
-			<button class="navbar-toggler " data-toggle="collapse" data-target="#navv">
-				<span class="navbar-toggler-icon "></span>
-			</button>
-			<div id="navv" class="collapse navbar-collapse justify-content-between">
-				<ul class="navbar-nav ">
-					<li class="nav-item hvr-underline-from-left">
-						<a href="/" class="nav-link">Home</a>
-					</li>
-					<li class="nav-item active">
-						<a href="problemset" class="nav-link">Problem Set</a>
-					</li>
-					<li class="nav-item hvr-underline-from-left">
-						<a href="contests" class="nav-link">Contests</a>
-					</li>
-					<li class="nav-item hvr-underline-from-left">
-						<a href="articles" class="nav-link">Articles</a>
-					</li>
-					<li class="nav-item hvr-underline-from-left">
-						<a href="contact" class="nav-link">Contact</a>
-					</li>
-				</ul>
+	<%- include('./partials/nav.ejs') %>
 
-				<ul class="navbar-nav ">
-					<%if(typeof user !== 'undefined'){%>
-						<li class="nav-item">
-							<a href="profile" class="nav-link">Gaser Ashraf</a>
-						</li>
-						
-						<li class="nav-item">
-							<a href="logout" class="nav-link">logout</a>
-						</li>
-					
-					<%}else {%> 
-						<li class="nav-item">
-							<a href="login" class="nav-link">Log In</a>
-						</li>
-						<span class="slash">/</span>
-						<li class="nav-item">
-							<a href="signup" class="nav-link">Sign Up</a>
-						</li>
-					<%}%>
+		<section>
+			<div class="row">
+				<div class="col py-3" style="background-color: #fff;">
+					<div class="container">
+						<h2 class="display-4"><i class="fas fa-code" style="font-size: 45px;"></i> Contest Name</h2>
+					</div>
 
-				</ul>
-
-			</div>
-		</div>
-	</nav>
-	<section>
-		<div class="row">
-			<div class="col py-3" style="background-color: #fff;">
-				<div class="container">
-					<h2 class="display-4"><i class="fas fa-code" style="font-size: 45px;"></i> Contest Name</h2>
 				</div>
-
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-10 mx-md-auto">
-				<a href="problemId" class="d-block my-3 mx-3 p-4 bg-white border rounded">
-					<div class="row">
-						<div class="col-md-8 mb-3 mb-md-0">
-							<h2 class="text-dark h2">Problem Name</h2>
-							<p class="text-muted">small desciption</p>
+			<div class="row">
+				<div class="col-md-10 mx-md-auto">
+					<a href="problemId" class="d-block my-3 mx-3 p-4 bg-white border rounded">
+						<div class="row">
+							<div class="col-md-8 mb-3 mb-md-0">
+								<h2 class="text-dark h2">Problem Name</h2>
+								<p class="text-muted">small desciption</p>
+							</div>
+							<div class="col-md-4 align-self-center">
+								<button class="btn btn-success w-100 btn-lg">Solve Challenge</button>
+							</div>
 						</div>
-						<div class="col-md-4 align-self-center">
-							<button class="btn btn-success w-100 btn-lg">Solve Challenge</button>
+					</a>
+					<a href="problemId" class="d-block my-3 mx-3 p-4 bg-white border rounded">
+						<div class="row">
+							<div class="col-md-8 mb-3 mb-md-0">
+								<h2 class="text-dark h2">Problem Name</h2>
+								<p class="text-muted">small desciption</p>
+							</div>
+							<div class="col-md-4 align-self-center">
+								<button class="btn btn-success w-100 btn-lg">Solve Challenge</button>
+							</div>
 						</div>
-					</div>
-				</a>
-				<a href="problemId" class="d-block my-3 mx-3 p-4 bg-white border rounded">
-					<div class="row">
-						<div class="col-md-8 mb-3 mb-md-0">
-							<h2 class="text-dark h2">Problem Name</h2>
-							<p class="text-muted">small desciption</p>
+					</a>
+					<a href="problemId" class="d-block my-3 mx-3 p-4 bg-white border rounded">
+						<div class="row">
+							<div class="col-md-8 mb-3 mb-md-0">
+								<h2 class="text-dark h2">Problem Name</h2>
+								<p class="text-muted">small desciption</p>
+							</div>
+							<div class="col-md-4 align-self-center">
+								<button class="btn btn-success w-100 btn-lg">Solve Challenge</button>
+							</div>
 						</div>
-						<div class="col-md-4 align-self-center">
-							<button class="btn btn-success w-100 btn-lg">Solve Challenge</button>
+					</a>
+					<a href="problemId" class="d-block my-3 mx-3 p-4 bg-white border rounded">
+						<div class="row">
+							<div class="col-md-8 mb-3 mb-md-0">
+								<h2 class="text-dark h2">Problem Name</h2>
+								<p class="text-muted">small desciption</p>
+							</div>
+							<div class="col-md-4 align-self-center">
+								<button class="btn btn-success w-100 btn-lg">Solve Challenge</button>
+							</div>
 						</div>
-					</div>
-				</a>
-				<a href="problemId" class="d-block my-3 mx-3 p-4 bg-white border rounded">
-					<div class="row">
-						<div class="col-md-8 mb-3 mb-md-0">
-							<h2 class="text-dark h2">Problem Name</h2>
-							<p class="text-muted">small desciption</p>
+					</a>
+					<a href="problemId" class="d-block my-3 mx-3 p-4 bg-white border rounded">
+						<div class="row">
+							<div class="col-md-8 mb-3 mb-md-0">
+								<h2 class="text-dark h2">Problem Name</h2>
+								<p class="text-muted">small desciption</p>
+							</div>
+							<div class="col-md-4 align-self-center">
+								<button class="btn btn-success w-100 btn-lg">Solve Challenge</button>
+							</div>
 						</div>
-						<div class="col-md-4 align-self-center">
-							<button class="btn btn-success w-100 btn-lg">Solve Challenge</button>
+					</a>
+					<a href="problemId" class="d-block my-3 mx-3 p-4 bg-white border rounded">
+						<div class="row">
+							<div class="col-md-8 mb-3 mb-md-0">
+								<h2 class="text-dark h2">Problem Name</h2>
+								<p class="text-muted">small desciption</p>
+							</div>
+							<div class="col-md-4 align-self-center">
+								<button class="btn btn-success w-100 btn-lg">Solve Challenge</button>
+							</div>
 						</div>
-					</div>
-				</a>
-				<a href="problemId" class="d-block my-3 mx-3 p-4 bg-white border rounded">
-					<div class="row">
-						<div class="col-md-8 mb-3 mb-md-0">
-							<h2 class="text-dark h2">Problem Name</h2>
-							<p class="text-muted">small desciption</p>
-						</div>
-						<div class="col-md-4 align-self-center">
-							<button class="btn btn-success w-100 btn-lg">Solve Challenge</button>
-						</div>
-					</div>
-				</a>
-				<a href="problemId" class="d-block my-3 mx-3 p-4 bg-white border rounded">
-					<div class="row">
-						<div class="col-md-8 mb-3 mb-md-0">
-							<h2 class="text-dark h2">Problem Name</h2>
-							<p class="text-muted">small desciption</p>
-						</div>
-						<div class="col-md-4 align-self-center">
-							<button class="btn btn-success w-100 btn-lg">Solve Challenge</button>
-						</div>
-					</div>
-				</a>
-				<a href="problemId" class="d-block my-3 mx-3 p-4 bg-white border rounded">
-					<div class="row">
-						<div class="col-md-8 mb-3 mb-md-0">
-							<h2 class="text-dark h2">Problem Name</h2>
-							<p class="text-muted">small desciption</p>
-						</div>
-						<div class="col-md-4 align-self-center">
-							<button class="btn btn-success w-100 btn-lg">Solve Challenge</button>
-						</div>
-					</div>
-				</a>
+					</a>
+				</div>
 			</div>
-		</div>
 
-	</section>
+		</section>
 
-	<!-- Scripts -->
+		<!-- Scripts -->
 
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script> -->
 
-	<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
 
-	<script src="assets/js/main.js"></script>
+		<script src="assets/js/main.js"></script>
 
-	<script>
+		<script>
 
 
-	</script>
+		</script>
 </body>
 
 </html>

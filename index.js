@@ -15,11 +15,15 @@ const contact=require('./routes/contact');
 const profile=require("./routes/profile");
 const logout= require("./routes/logout");
 const verify=require('./routes/verifiyToken');
+const { resolveInclude } = require('ejs');
+const { nextTick } = require('process');
 app.set('view engine','ejs');
 
 app.listen(5000, () => {
   console.log('Server initiated succesfully');
 });
+
+
 
 
 // set a static files
@@ -28,9 +32,14 @@ app.use(express.urlencoded({extended:true}));
 app.use(cors());
 app.use(cookieParser());
 
+
 app.get('/',verify,(req,res)=>{
-    res.render('index',req.user);
-})
+    let token = req.user;
+    res.render('index', { token , Current_Nav: 'Home'
+    });
+});
+
+
 app.use(articles);
 app.use(contests);
 app.use(problemset);
@@ -45,20 +54,21 @@ app.use(logout);
 
 //TO TEST ONLY 
 app.get('/teams',(req,res)=>{
-    res.render('teams');
+    res.render('teams',{Current_Nav:'__'});
 });
 app.get('/groups',(req,res)=>{
-    res.render('groups');
+    res.render('groups',{Current_Nav:'__'});
 });
 app.get('/createteam',(req,res)=>{
-    res.render('createteam');
+    res.render('createteam',{Current_Nav:'__'});
 });
 app.get('/creategroup',(req,res)=>{
-    res.render('creategroup');
+    res.render('creategroup',{Current_Nav:'__'});
 });
 
 
 // if the request reach to this then there are 404
 app.use(verify,(req,res)=>{
-    res.render("404",req.user);
+    let token = req.user;
+    res.render("404",{token,Current_Nav:'__'});
 })

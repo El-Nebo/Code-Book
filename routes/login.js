@@ -3,7 +3,7 @@ const connection=require('./server');
 const bcrypt=require('bcryptjs');
 const jwt=require('jsonwebtoken');
 router.get('/login',(req,res)=>{
-    res.render('login');
+    res.render('login',{Current_Nav:'_'});
 })
 router.post('/login',async(req,res)=>{
 
