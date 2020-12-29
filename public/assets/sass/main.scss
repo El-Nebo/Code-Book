@@ -94,11 +94,13 @@
 		padding: 0;
 	}
 
-	input, select, textarea {
-		-moz-appearance: none;
+	input, textarea, button {
 		-webkit-appearance: none;
-		-ms-appearance: none;
-		appearance: none;
+		-webkit-font-smoothing: antialiased;
+		resize: none;
+	}
+	input[type="radio"]{
+		-webkit-appearance: radio;
 	}
 	.mb-em{
 		margin-bottom: 1em;

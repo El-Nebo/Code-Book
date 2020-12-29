@@ -61,28 +61,32 @@ tinypng
 		  </nav>
 		<section class="">
 			<div class="container">
-				<div class="w-100 d-flex justify-content-center">
-					<div class="w-50 p-5">
-						<div class="input-group mb-2">
-							<div class="input-group-prepend">
-							  <span class="input-group-text " id="inputGroupPrepend"><i class="fas fa-user"></i></span>
+				<form action="/login" method="POST" id="loginForm">
+					<div class="w-100 d-flex justify-content-center">
+						
+						<div class="w-50 p-5">
+							<div class="input-group mb-2">
+								<div class="input-group-prepend">
+								<span class="input-group-text " id="inputGroupPrepend"><i class="fas fa-user"></i></span>
+								</div>
+								<input form="loginForm" name="username" type="text" placeholder="User Name" class="form-control form-control-lg mb-md-0 mb-3">
 							</div>
-							<input type="text" placeholder="User Name" class="form-control form-control-lg mb-md-0 mb-3">
-						</div>
-						<div class="input-group mb-2">
-							<div class="input-group-prepend">
-							  <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-lock"></i></span>
+							<div class="input-group mb-2">
+								<div class="input-group-prepend">
+								<span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-lock"></i></span>
+								</div>
+								<input form="loginForm" name="password" type="password" placeholder="Password" class="form-control form-control-lg">
 							</div>
-							<input type="password" placeholder="Password" class="form-control form-control-lg">
-						</div>
-						<button type="submit" class="btn btn-block" >Login</button>
+							<button form="loginForm" type="submit" class="btn btn-lg btn-block" >Login</button>
 
-						<div>
-							<p>don't have account?</p>
-							<a href="signup"> sign up</a>
+							<div>
+								<p>don't have account?</p>
+								<a href="signup"> sign up</a>
+							</div>
 						</div>
+						
 					</div>
-				</div>
+				</form>
 			</div>
 		</section>
 

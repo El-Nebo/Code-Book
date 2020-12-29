@@ -1,11 +1,12 @@
 const router = require('express').Router();
-router.get('/problemset',(req,res)=>{
-    res.render('problemset');
+const verify=require('./verifiyToken');
+router.get('/problemset',verify,(req,res)=>{
+    res.render('problemset',req.user);
 })
-router.get('/problemId',(req,res)=>{
-    res.render('problem');
+router.get('/problemId',verify,(req,res)=>{
+    res.render('problem',req.user);
 })
-router.get('/createproblem',(req,res)=>{
-    res.render('createproblem');
+router.get('/createproblem',verify,(req,res)=>{
+    res.render('createproblem',req.user);
 })
 module.exports = router;

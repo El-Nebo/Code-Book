@@ -137,8 +137,14 @@ input::-moz-focus-inner {
   padding: 0;
 }
 
-input, select, textarea {
-  appearance: none;
+input, textarea, button {
+  -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased;
+  resize: none;
+}
+
+input[type="radio"] {
+  -webkit-appearance: radio;
 }
 
 .mb-em {

@@ -1,11 +1,12 @@
 const router = require('express').Router();
-router.get('/articles',(req,res)=>{
-    res.render('articles');
+const verify=require('./verifiyToken');
+router.get('/articles',verify,(req,res)=>{
+    res.render('articles',req.user);
 })
-router.get('/articles/:articleTitle',(req,res)=>{
-    res.render('article');
+router.get('/articles/:articleTitle',verify,(req,res)=>{
+    res.render('article',req.user);
 })
-router.get('/createarticle',(req,res)=>{
-    res.render("createarticle.ejs");
+router.get('/createarticle',verify,(req,res)=>{
+    res.render("createarticle.ejs",req.user);
 })
 module.exports = router;

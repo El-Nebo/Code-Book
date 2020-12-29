@@ -1,8 +1,9 @@
 const router = require('express').Router();
-router.get('/contests',(req,res)=>{
-    res.render('contests');
+const verify=require('./verifiyToken');
+router.get('/contests',verify,(req,res)=>{
+    res.render('contests',req.user);
 })
-router.get('/ContestId',(req,res)=>{
-    res.render('contest');
+router.get('/ContestId',verify,(req,res)=>{
+    res.render('contest',req.user);
 })
 module.exports = router;
