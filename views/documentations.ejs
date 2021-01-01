@@ -25,7 +25,7 @@ tinypng
 			<div class="row">
 				<div class="col py-3" style="background-color: #fff;">
 					<div class="container">
-						<h2 class="display-4"><i class="fas fa-newspaper mr-2" style="font-size: 45px;"></i>Articles
+						<h2 class="display-4"><i class="fas fa-newspaper mr-2" style="font-size: 45px;"></i>Documentations
 						</h2>
 					</div>
 
@@ -50,18 +50,18 @@ tinypng
 				<div class="col-md-8">
 
 
-					<% articles.forEach( article=>{ %>
+					<% documentations.forEach( documentation=>{ %>
 					
-						<a href="/articles/<%=article.ID %>" class="d-block my-3 mx-3 p-4 bg-white border rounded">
+						<a href="/documentation/<%=documentation.ID %>" class="d-block my-3 mx-3 p-4 bg-white border rounded">
 							<div class="row">
 								<div class="col-md-8 mb-3 mb-md-0">
-									<h2 class="text-dark h2"><%=article.ArtName%></h2>
+									<h2 class="text-dark h2"><%=documentation.DocName%></h2>
 
-									<p class="text-muted">Last Updated: <%=article.Art_date%></p>
-									<p class="text-dark"><%=article.Statment%><span class="text-primary"> Read More »</span></p>
+									<p class="text-muted">Last Updated: <%=documentation.Doc_date%></p>
+									<p class="text-dark"><%=documentation.Statment%><span class="text-primary"> Read More »</span></p>
 								</div>
 								<div class="col-md-4 align-self-center">
-									<button class="btn btn-success w-100 btn-lg">Read Article</button>
+									<button class="btn btn-success w-100 btn-lg">Read documentation</button>
 								</div>
 							</div>
 						</a>

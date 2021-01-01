@@ -20,53 +20,45 @@ tinypng
 
 <body class="">
 	<!-- Nav tabs -->
+
 	<%- include('./partials/nav.ejs') %>
+
 		<section>
 			<div class="row">
 				<div class="col py-3" style="background-color: #fff;">
 					<div class="container">
-						<h2 class="display-4"><i class="fas fa-newspaper mr-2" style="font-size: 45px;"></i>Articles
+						<h2 class="display-4"><i class="fas fa-newspaper mr-2" style="font-size: 45px;"></i>Create
+							Documentation
 						</h2>
 					</div>
 
 				</div>
 			</div>
-			<div class="row justify-content-start">
-				<div class="col-md-3 ">
-					<div class=" bg-white border rounded my-3 mx-3">
-						<div class="mx-4 my-2">
-							<h2>c++</h2>
-						</div>
-						<hr>
-						<div class="mx-4 my-2">
-							<h2>c++</h2>
-						</div>
-						<hr>
-						<div class="mx-4 my-2">
-							<h2>c++</h2>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-8">
+			<div class="row justify-content-center">
 
-
-					<% articles.forEach( article=>{ %>
-					
-						<a href="/articles/<%=article.ID %>" class="d-block my-3 mx-3 p-4 bg-white border rounded">
-							<div class="row">
-								<div class="col-md-8 mb-3 mb-md-0">
-									<h2 class="text-dark h2"><%=article.ArtName%></h2>
-
-									<p class="text-muted">Last Updated: <%=article.Art_date%></p>
-									<p class="text-dark"><%=article.Statment%><span class="text-primary"> Read More »</span></p>
-								</div>
-								<div class="col-md-4 align-self-center">
-									<button class="btn btn-success w-100 btn-lg">Read Article</button>
-								</div>
+				<div class="col-md-8 ">
+					<form action="/createdocumentation" method="POST" id="createdoc">
+						<div class="card-body text-center">
+							<h2>Please fill all data to create Documentation</h2>
+							<hr>
+							<div class="d-md-flex d-block justify-content-between mb-3">
+								<input form="createdoc" type="text" placeholder="Documentation title"
+									class="form-control mb-md-0 mb-3 form-control-lg" type="text" id="title"
+									name="title">
 							</div>
-						</a>
-					
-					<% }) %>
+							<div class="d-md-flex d-block justify-content-between mb-3">
+								<input form="createdoc" type="text" placeholder="Documentation Topic"
+									class="form-control mb-md-0 mb-3 form-control-lg" type="text" id="Topic" name="Topic">
+							</div>
+							<textarea form="createdoc" placeholder="Documentation body" class="form-control mb-3 form-control-lg"
+								type="text" id="body" name="body"></textarea>
+							<div class="d-md-flex d-block justify-content-between mb-3">
+
+							</div>
+
+							<button form="createdoc" type="submit" class="btn btn-outline-dark btn-block">Submit</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</section>

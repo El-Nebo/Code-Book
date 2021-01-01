@@ -2,7 +2,7 @@ const router = require('express').Router();
 const connection=require('./server');
 const bcrypt=require('bcryptjs');
 router.get('/signup',(req,res)=>{
-    res.render('signup',{Current_Nav:'__'});
+    res.render('signup',{user:req.user,Current_Nav:'__'});
 })
 router.post('/signup',async(req,res)=>{
 
@@ -11,7 +11,7 @@ router.post('/signup',async(req,res)=>{
               "email":req.body.email,
               };
               //console.log(req.body.inlineRadioOptions);
-    let emailExist =`select * from users.Users where E_mail ="${req.body.email}" or Handle="${req.body.username}"`;
+    let emailExist =`select * from NyZaKa.Users where E_mail ="${req.body.email}" or Handle="${req.body.username}"`;
     connection.query(emailExist,  async(error, results, fields)=> {
         if (error) res.send(error);
         //res.render('/Blogs'); 
@@ -23,7 +23,7 @@ router.post('/signup',async(req,res)=>{
             //hash password
             const salt=await bcrypt.genSalt(10);
             const hashedpassword=await bcrypt.hash(req.body.password,salt);
-            let query=`insert into users.Users values("${req.body.username}","${req.body.inlineRadioOptions}","${req.body.email}","${hashedpassword}","${req.body.fname}","${req.body.lname}",0,0);`;
+            let query=`insert into NyZaKa.Users values("${req.body.username}","${req.body.inlineRadioOptions}","${req.body.email}","${hashedpassword}","${req.body.fname}","${req.body.lname}",0,0);`;
             connection.query(query,  (error, results, fields)=> {
                 if (error) res.send(error);
                 //res.render('/Blogs'); 
@@ -31,7 +31,10 @@ router.post('/signup',async(req,res)=>{
             });
         }
         else
+        {
             res.send("email exists");
+            //console.log(results[0]);
+        }
 
     });    
 });

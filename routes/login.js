@@ -2,8 +2,12 @@ const router = require('express').Router();
 const connection=require('./server');
 const bcrypt=require('bcryptjs');
 const jwt=require('jsonwebtoken');
-router.get('/login',(req,res)=>{
-    res.render('login',{Current_Nav:'_'});
+
+const verifiyToken = require('./verifiyToken');
+router.get('/login',verifiyToken,(req,res)=>{
+    if(req.user)
+        res.redirect('profile');
+    res.render('login',{user:req.user,Current_Nav:'_'});
 })
 router.post('/login',async(req,res)=>{
 
@@ -12,7 +16,7 @@ router.post('/login',async(req,res)=>{
               "email":req.body.email,
               };
               //console.log(req.body.inlineRadioOptions);
-    let emailExist =`select * from users.Users where Handle="${req.body.username}"`;
+    let emailExist =`select * from NyZaKa.Users where Handle="${req.body.username}"`;
     connection.query(emailExist, async (error, results, fields)=> {
         if (error) res.send(error);
         //res.render('/Blogs'); 

@@ -9,11 +9,11 @@
 
         <%
 
-        let  Home ='nav-item hvr-underline-from-left';
+         let  Home ='nav-item hvr-underline-from-left';
          let  problemset = 'nav-item hvr-underline-from-left';
          let  contests = 'nav-item hvr-underline-from-left';
          let  articles = 'nav-item hvr-underline-from-left';
-         let  contact = 'nav-item hvr-underline-from-left';
+         let  Documentation = 'nav-item hvr-underline-from-left';
 
             switch(Current_Nav){
                 case 'Home':
@@ -28,8 +28,8 @@
                 case 'articles':
                 articles = 'nav-item active';
                 break;
-                case 'contact':
-                contact = 'nav-item active';
+                case 'Documentation':
+                Documentation = 'nav-item active';
                 break;
             }
         %>
@@ -40,36 +40,36 @@
                 <a href="/" class="nav-link">Home</a>
               </li>
               <li class= '<%= problemset%>' >
-                <a href="problemset" class="nav-link">Problem Set</a>
+                <a href="/problemset" class="nav-link">Problem Set</a>
               </li>
               <li class= '<%= contests%>' >
-                <a href="contests" class="nav-link">Contests</a>
+                <a href="/contests" class="nav-link">Contests</a>
               </li>
               <li class= '<%= articles%>' >
-                <a href="articles" class="nav-link">Articles</a>
+                <a href="/articles" class="nav-link">Articles</a>
               </li>
-              <li class= '<%= contact%>' >
-                <a href="contact" class="nav-link">Contact</a>
+              <li class= '<%= Documentation%>' >
+                <a href="/documentations" class="nav-link">Documentation</a>
               </li>
             </ul>
             
             <ul class="navbar-nav ">
                 <%if(typeof user !== 'undefined'){%>
                     <li class="nav-item">
-                        <a href="profile" class="nav-link">Gaser Ashraf</a>
+                        <a href="/profile" class="nav-link"><%=user.user.Handle%></a>
                     </li>
                     
                     <li class="nav-item">
-                        <a href="logout" class="nav-link">logout</a>
+                        <a href="/logout" class="nav-link">logout</a>
                     </li>
                 
                 <%}else {%> 
                     <li class="nav-item">
-                        <a href="login" class="nav-link">Log In</a>
+                        <a href="/login" class="nav-link">Log In</a>
                     </li>
                     <span class="slash">/</span>
                     <li class="nav-item">
-                        <a href="signup" class="nav-link">Sign Up</a>
+                        <a href="/signup" class="nav-link">Sign Up</a>
                     </li>
                 <%}%>
                 

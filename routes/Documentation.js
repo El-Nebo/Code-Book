@@ -1,67 +1,61 @@
 const router = require('express').Router();
 const verify=require('./verifiyToken');
 const connection=require('./server');
-router.get('/articles',verify,(req,res)=>{
+router.get('/documentations',verify,(req,res)=>{
     let token = req.user;
-    let arrArticles=[];
+    let arrDocumentation=[];
     
-    let query =`select * from NyZaKa.Articles;`;
+    let query =`select * from NyZaKa.Documentation;`;
      connection.query(query,  async (error, results, fields)=> {
         if (error) res.send(error);
         //res.render('/Blogs'); 
         
         results.forEach(element => {
-            let article={
+            let documentation={
                 ID:element.ID,
-                ArtName:element.ArtName,
+                DocName:element.DocName,
                 Topic:element.Topic,
                 Statment:element.Statment,
-                Art_date:element.Art_date.toLocaleDateString("en-US").split("-")
+                Doc_date:element.Doc_date.toLocaleDateString("en-US").split("-")
             }
-            arrArticles.push(article);
+            arrDocumentation.push(documentation);
         });
        // console.log(arrArticles);
-        res.render('articles',{user:req.user, Current_Nav:'articles',articles:arrArticles});
+        res.render('documentations',{user:req.user, Current_Nav:'Documentation',documentations:arrDocumentation});
     });
     
 });
-router.get('/article',verify,(req,res)=>{
-    let token = req.user;
-    
-        res.render('article',{user:req.user, Current_Nav:'articles'});
-    
-    
-});
-router.get('/articles/:id',verify,(req,res)=>{
+
+router.get('/Documentation/:id',verify,(req,res)=>{
     let token = req.user;
 
 
-    let query=`SELECT * FROM NyZaKa.Articles WHERE id=${req.params.id}`;
+    let query=`SELECT * FROM NyZaKa.Documentation WHERE id=${req.params.id}`;
     console.log(req.params.id);
     connection.query(query,  (error, results, fields)=> {
         if (error) throw error;
         //res.render('/Blogs'); 
-        let article={
+        let documentation={
             ID:results[0].ID,
-            ArtName:results[0].ArtName,
+            DocName:results[0].DocName,
             Topic:results[0].Topic,
             Statment:results[0].Statment,
-            Art_date:results[0].Art_date.toLocaleDateString("en-US").split("-")
+            Doc_date:results[0].Doc_date.toLocaleDateString("en-US").split("-")
         }
         
-        res.render('article',{user:req.user, Current_Nav:'articles',article:article});
+        res.render('Documentation',{user:req.user, Current_Nav:'Documentation',documentation:documentation});
     });
 
 
 
 });
-router.get('/createarticle',verify,(req,res)=>{
+router.get('/createdocumentation',verify,(req,res)=>{
     let token = req.user;
     if(token.user.Acsess=="student"||!req.user)
         res.status(403).send("access denied");
-    res.render('createarticle',{user:req.user, Current_Nav:'articles'});
+    res.render('createdocumentation',{user:req.user, Current_Nav:'Documentation'});
 });
-router.post('/createarticle',verify,(req,res)=>{
+router.post('/createdocumentation',verify,(req,res)=>{
     let token = req.user;
     if(token.user.Acsess=="student"||!req.user)
         res.status(403).send("access denied");
@@ -70,19 +64,18 @@ router.post('/createarticle',verify,(req,res)=>{
     let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
     let year = date_ob.getFullYear();
 
-    let article={
+    let documentation={
         name: req.body.title,
         Topic:req.body.Topic,
         body:req.body.body,
         date:year + "-" + month + "-" + date,
         writer:token.user.Handle
     };
-    console.log(article);
-    let query =`insert into NyZaKa.Articles(ArtName,Topic,Statment,Art_date,Writer) values("${article.name}","${article.Topic}","${article.body}","${article.date}","${article.writer}");`;
+    let query =`insert into NyZaKa.Documentation(DocName,Topic,Statment,Doc_date,Writer) values("${documentation.name}","${documentation.Topic}","${documentation.body}","${documentation.date}","${documentation.writer}");`;
     connection.query(query,  async(error, results, fields)=> {
         if (error) res.send(error);
         //res.render('/Blogs'); 
-        res.send("Articles added successfully");
+        res.send("documentation added successfully");
     });
     //res.render('createarticle',{user:req.user, Current_Nav:'articles'});
 });

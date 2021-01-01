@@ -11,7 +11,7 @@ const signup=require('./routes/signup');
 const articles=require('./routes/articles');
 const contests=require('./routes/contests');
 const login=require('./routes/login');
-const contact=require('./routes/contact');
+const Documentation=require('./routes/Documentation');
 const profile=require("./routes/profile");
 const logout= require("./routes/logout");
 const verify=require('./routes/verifiyToken');
@@ -35,7 +35,7 @@ app.use(cookieParser());
 
 app.get('/',verify,(req,res)=>{
     let token = req.user;
-    res.render('index', { token , Current_Nav: 'Home'
+    res.render('index', { user:req.user , Current_Nav: 'Home'
     });
 });
 
@@ -45,7 +45,7 @@ app.use(contests);
 app.use(problemset);
 app.use(login);
 app.use(signup);
-app.use(contact);
+app.use(Documentation);
 app.use(profile);
 app.use(logout);
 
