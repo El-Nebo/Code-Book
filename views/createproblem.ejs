@@ -36,7 +36,7 @@ tinypng
 			<div class="row justify-content-center">
 
 				<div class="col-md-8 ">
-					<form action="articles" method="POST" id="formProblem">
+					<form action="/createproblem" method="POST" id="formProblem">
 						<div class="card-body text-center">
 							<h2>Please fill all data to crete problem</h2>
 							<hr>
@@ -66,14 +66,35 @@ tinypng
 
 
 							<div class="d-md-flex d-block justify-content-between mb-3">
-								<input form="formProblem" type="text" placeholder="problem input"
-									class="form-control mb-md-0 mb-3 form-control-lg" type="text" id="problemInput"
-									name="problemInput">
+								<input form="formProblem" type="text" placeholder="Sample input"
+									class="form-control mb-md-0 mb-3 form-control-lg" type="text" id="SampleInput"
+									name="SampleInput">
 							</div>
 							<div class="d-md-flex d-block justify-content-between mb-3">
-								<input form="formProblem" type="text" placeholder="problem output"
-									class="form-control mb-md-0 mb-3 form-control-lg" type="text" id="problemOutput"
-									name="problemOutput">
+								<input form="formProblem" type="text" placeholder="Sample output"
+									class="form-control mb-md-0 mb-3 form-control-lg" type="text" id="SampleOutput"
+									name="SampleOutput">
+							</div>
+
+							<div class="d-md-flex d-block justify-content-between mb-3">
+								<input form="formProblem" type="text" placeholder="problem input" class="form-control mb-md-0 mb-3 form-control-lg"
+									type="text" id="problemInput" name="problemInput">
+							</div>
+							<div class="d-md-flex d-block justify-content-between mb-3">
+								<input form="formProblem" type="text" placeholder="problem output" class="form-control mb-md-0 mb-3 form-control-lg"
+									type="text" id="problemOutput" name="problemOutput">
+							</div>
+							<div class="d-md-flex d-block justify-content-between mb-3">
+								<input form="formProblem" type="text" placeholder="Topic" class="form-control mb-md-0 mb-3 form-control-lg"
+									type="text" id="Topic" name="Topic">
+							</div>
+							<div class="d-md-flex d-block justify-content-between mb-3">
+								<input form="formProblem" type="number" placeholder="Score" class="form-control mb-md-0 mb-3 form-control-lg"
+									type="number" id="Score" name="Score">
+							</div>
+							<div class="d-md-flex d-block justify-content-between mb-3">
+								<input form="formProblem" type="number" placeholder="Difficulty" class="form-control mb-md-0 mb-3 form-control-lg"
+									type="number" id="Difficulty" name="Difficulty">
 							</div>
 							<button form="formProblem" type="submit"
 								class="btn btn-outline-dark btn-block">Submit</button>

@@ -12,8 +12,8 @@ tinypng
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css" />
     <!-- <script src="https://kit.fontawesome.com/85999f6d09.js" crossorigin="anonymous"></script> -->
 
 </head>
@@ -36,43 +36,41 @@ tinypng
                 <div class="p-3 mb-2">
                     <h2 class="h2">Description</h2>
                     <p class="text-muted">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit earum facilis numquam
-                        laboriosam
-                        quae perferendis quis delectus, consequatur eius deserunt distinctio iste illum ea nobis dolore
-                        et
-                        natus autem corporis?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quo dolores
-                        quibusdam distinctio incidunt nostrum vel magnam quae suscipit ipsa. Sed adipisci cum non earum.
-                        Nulla aperiam eaque perferendis expedita.
+                        <%= Problem.statement %>
                     </p>
                 </div>
                 <div class="p-3 mb-2">
                     <h2 class="h2">Input Format </h2>
                     <p class="text-muted">
-                        The first line contains a single integer, , the number of rows and columns in the square matrix
-                        .
-                        Each of the next lines describes a row, , and consists of space-separated integers .
+                        <%= Problem.Input_Format %>
                     </p>
                 </div>
                 <div class="p-3 mb-2">
                     <h2 class="h2">Output Format </h2>
                     <p class="text-muted">
-                        The first line contains a single integer, , the number of rows and columns in the square matrix
-                        .
-                        Each of the next lines describes a row, , and consists of space-separated integers .
+                        <%= Problem.Output_Format %>
                     </p>
                 </div>
                 <div class="p-3 mb-2">
                     <h2 class="h2">Sample Input</h2>
                     <p class="p-3 bg-light border rounded">
-                        3 11 2 4 4 5 6 10 8 -12
+                        <%= Problem.Sample_Input %>
                     </p>
                 </div>
                 <div class="p-3 mb-2">
                     <h2 class="h2">Sample Output</h2>
                     <p class="p-3 bg-light border rounded">
-                        3
+                        <%= Problem.Sample_Output %>
                     </p>
                 </div>
+
+                <div class="p-3 mb-2">
+                    <h2 class="h2">Input</h2>
+                    <p class="p-3 bg-light border rounded">
+                        <%= Problem.Input %>
+                    </p>
+                </div>
+
             </div>
         </div>
         <div class="row bg-white p-4">
