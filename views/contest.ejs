@@ -12,8 +12,9 @@ tinypng
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/assets/css/main.css" />
+
 	<script src="https://kit.fontawesome.com/85999f6d09.js" crossorigin="anonymous"></script>
 
 </head>
@@ -26,79 +27,29 @@ tinypng
 			<div class="row">
 				<div class="col py-3" style="background-color: #fff;">
 					<div class="container">
-						<h2 class="display-4"><i class="fas fa-code" style="font-size: 45px;"></i> Contest Name</h2>
+						<h2 class="display-4"><i class="fas fa-code" style="font-size: 45px;"></i> Contest# <%= ContestID%></h2>
 					</div>
 
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-10 mx-md-auto">
-					<a href="problemId" class="d-block my-3 mx-3 p-4 bg-white border rounded">
+
+					<% All_Problems.forEach(Problem => {%>
+
+					<a href="/problems/<%= Problem.ID %>" class="d-block my-3 mx-3 p-4 bg-white border rounded">
 						<div class="row">
 							<div class="col-md-8 mb-3 mb-md-0">
-								<h2 class="text-dark h2">Problem Name</h2>
-								<p class="text-muted">small desciption</p>
+								<h2 class="text-dark h2"><%=Problem.Name%></h2>
+								<p class="text-muted"><%=Problem.statement%></p>
 							</div>
 							<div class="col-md-4 align-self-center">
 								<button class="btn btn-success w-100 btn-lg">Solve Challenge</button>
 							</div>
 						</div>
 					</a>
-					<a href="problemId" class="d-block my-3 mx-3 p-4 bg-white border rounded">
-						<div class="row">
-							<div class="col-md-8 mb-3 mb-md-0">
-								<h2 class="text-dark h2">Problem Name</h2>
-								<p class="text-muted">small desciption</p>
-							</div>
-							<div class="col-md-4 align-self-center">
-								<button class="btn btn-success w-100 btn-lg">Solve Challenge</button>
-							</div>
-						</div>
-					</a>
-					<a href="problemId" class="d-block my-3 mx-3 p-4 bg-white border rounded">
-						<div class="row">
-							<div class="col-md-8 mb-3 mb-md-0">
-								<h2 class="text-dark h2">Problem Name</h2>
-								<p class="text-muted">small desciption</p>
-							</div>
-							<div class="col-md-4 align-self-center">
-								<button class="btn btn-success w-100 btn-lg">Solve Challenge</button>
-							</div>
-						</div>
-					</a>
-					<a href="problemId" class="d-block my-3 mx-3 p-4 bg-white border rounded">
-						<div class="row">
-							<div class="col-md-8 mb-3 mb-md-0">
-								<h2 class="text-dark h2">Problem Name</h2>
-								<p class="text-muted">small desciption</p>
-							</div>
-							<div class="col-md-4 align-self-center">
-								<button class="btn btn-success w-100 btn-lg">Solve Challenge</button>
-							</div>
-						</div>
-					</a>
-					<a href="problemId" class="d-block my-3 mx-3 p-4 bg-white border rounded">
-						<div class="row">
-							<div class="col-md-8 mb-3 mb-md-0">
-								<h2 class="text-dark h2">Problem Name</h2>
-								<p class="text-muted">small desciption</p>
-							</div>
-							<div class="col-md-4 align-self-center">
-								<button class="btn btn-success w-100 btn-lg">Solve Challenge</button>
-							</div>
-						</div>
-					</a>
-					<a href="problemId" class="d-block my-3 mx-3 p-4 bg-white border rounded">
-						<div class="row">
-							<div class="col-md-8 mb-3 mb-md-0">
-								<h2 class="text-dark h2">Problem Name</h2>
-								<p class="text-muted">small desciption</p>
-							</div>
-							<div class="col-md-4 align-self-center">
-								<button class="btn btn-success w-100 btn-lg">Solve Challenge</button>
-							</div>
-						</div>
-					</a>
+					
+					<%});%>
 				</div>
 			</div>
 

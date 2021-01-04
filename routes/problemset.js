@@ -32,13 +32,14 @@ router.get('/problems/:id',verify,(req,res)=>{
     let query = `SELECT * FROM NyZaKa.Problem WHERE problem_id=${req.params.id}`;
     connection.query(query, (error, results, fields) => {
         if (error) throw error;
-        //res.render('/Blogs'); 
+        
+        
         let Problem = {
             ID: results[0].Problem_ID,
             Name: results[0].NameProblem,
             Topic: results[0].Topic,
             Writer: results[0].Writer,
-            Input: results[0].Input,
+            Input: results[0].input,
             statement: results[0].statment,
             Input_Format: results[0].Input_Format,
             Output_Format: results[0].Output_Format,
@@ -82,7 +83,6 @@ router.post('/createproblem' , verify, (req,res) => {
         Sample_Output: req.body.SampleOutput
     };
 
-    console.log(Problem.Writer);
     let query = `INSERT INTO NyZaKa.Problem
     (Topic, NameProblem, writer, input, output, statment, Input_Format, Output_Format, score, difficulty,Sample_Input,Sample_Output)
     values('${Problem.Topic}','${Problem.Name}','${Problem.Writer}','${Problem.Input}','${Problem.Output}','${Problem.statement}','${Problem.InputFormat}','${Problem.OutputFormat}','${Problem.Score}','${Problem.Difficulty}','${Problem.Sample_Input}','${Problem.Sample_Output}');`;
