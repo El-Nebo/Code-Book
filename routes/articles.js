@@ -41,15 +41,21 @@ router.get('/articles/:id',verify,(req,res)=>{
     connection.query(query,  (error, results, fields)=> {
         if (error) throw error;
         //res.render('/Blogs'); 
-        let article={
-            ID:results[0].ID,
-            ArtName:results[0].ArtName,
-            Topic:results[0].Topic,
-            Statment:results[0].Statment,
-            Art_date:results[0].Art_date.toLocaleDateString("en-US").split("-")
-        }
+        console.log(results.length)
+        if(!results.length)
+            res.render('404',{user:req.user, Current_Nav:'__'});
+        else
+        {
+            let article={
+                ID:results[0].ID,
+                ArtName:results[0].ArtName,
+                Topic:results[0].Topic,
+                Statment:results[0].Statment,
+                Art_date:results[0].Art_date.toLocaleDateString("en-US").split("-")
+            }
         
-        res.render('article',{user:req.user, Current_Nav:'articles',article:article});
+            res.render('article',{user:req.user, Current_Nav:'articles',article:article});
+        }
     });
 
 

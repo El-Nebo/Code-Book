@@ -35,15 +35,19 @@ router.get('/Documentation/:id',verify,(req,res)=>{
     connection.query(query,  (error, results, fields)=> {
         if (error) throw error;
         //res.render('/Blogs'); 
-        let documentation={
-            ID:results[0].ID,
-            DocName:results[0].DocName,
-            Topic:results[0].Topic,
-            Statment:results[0].Statment,
-            Doc_date:results[0].Doc_date.toLocaleDateString("en-US").split("-")
-        }
+        if(!results.length)
+            res.render('404',{user:req.user, Current_Nav:'__'});
+        else{
+            let documentation={
+                ID:results[0].ID,
+                DocName:results[0].DocName,
+                Topic:results[0].Topic,
+                Statment:results[0].Statment,
+                Doc_date:results[0].Doc_date.toLocaleDateString("en-US").split("-")
+            }
         
-        res.render('Documentation',{user:req.user, Current_Nav:'Documentation',documentation:documentation});
+            res.render('Documentation',{user:req.user, Current_Nav:'Documentation',documentation:documentation});
+        }
     });
 
 

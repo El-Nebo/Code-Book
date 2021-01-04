@@ -213,6 +213,18 @@ a{
 		}
 	}
 }
+.boxFriend{
+	background-color: #fff;
+	padding: 5px;
+	border: 1.5px solid #474f51;
+	margin: 5px;
+	position: relative;
+	border-radius: 5px;
+	.iconRemove{
+		position: absolute;
+		right: 5px;
+	}
+}
 
 @include breakpoint('<=xlarge') {
 	

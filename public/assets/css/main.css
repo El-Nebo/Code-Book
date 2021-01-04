@@ -267,6 +267,20 @@ a {
   padding: 10px;
 }
 
+.boxFriend {
+  background-color: #fff;
+  padding: 5px;
+  border: 1.5px solid #474f51;
+  margin: 5px;
+  position: relative;
+  border-radius: 5px;
+}
+
+.boxFriend .iconRemove {
+  position: absolute;
+  right: 5px;
+}
+
 @media screen and (max-width: 980px) {
   .slash {
     display: none;

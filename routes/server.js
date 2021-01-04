@@ -4,7 +4,7 @@ var mysql      = require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password: 'Abbas123456_?123456',//change to ur password
+  password: 'password',//change to ur password
   database : 'NyZaKa',
   
 });
@@ -15,16 +15,3 @@ connection.connect((err)=>{
         console.log("connection failed");
 });
 module.exports=connection;
-/*
-create database users;
-create table users.Users (
-Handle      varchar(100)   NOT NULL ,
-Acsess      varchar(100)   NOT NULL ,
-E_mail      varchar(100)   NOT NULL ,
-Password_   varchar(80)   NOT NULL ,
-Fname       varchar(80)   NOT NULL ,
-Lname       varchar(80)   NOT NULL ,
-Rate_max    int           NOT NULL ,
-Rate_cur    int           NOT NULL ,
-PRIMARY KEY  (Handle)       );
-*/
