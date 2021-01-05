@@ -36,24 +36,24 @@ tinypng
             <div class="row justify-content-center">
 
                 <div class="col-md-8 ">
-                    <form action="groups" method="POST">
+                    <form action="/creategroup" method="POST" id = "creategroup">
                         <!--Specify the action later-->
                         <div class="card-body text-center">
                             <h2 class="mb-3">Please fill all the data to create a group</h2>
                             <hr>
                             <div class="d-md-flex d-block justify-content-between mb-3">
-                                <input form="myform" type="text" placeholder="Group name"
-                                    class="form-control mb-md-0 mb-3 form-control-lg" type="text" id="groupName"
-                                    name="teamName">
+                                <input form="creategroup" type="text" placeholder="Group name"
+                                    class="form-control mb-md-0 mb-3 form-control-lg"  id="GroupName"
+                                    name="GroupName">
                             </div>
                             <div class="d-md-flex d-block justify-content-between mb-3">
-                                <input form="myform" type="text"
-                                    placeholder="Group usernames separated by dash e.g. nebo-shabro-mahdy-gaser"
-                                    class="form-control mb-md-0 mb-3 form-control-lg" type="text" id="groupMembers"
-                                    name="groupMembers">
+                                <input form="creategroup" type="text"
+                                    placeholder="Group Admins separated by dash e.g. nebo-shabro-mahdy-gaser"
+                                    class="form-control mb-md-0 mb-3 form-control-lg" type="text" id="GroupAdmins"
+                                    name="GroupAdmins">
                             </div>
 
-                            <button form="myform" type="submit" class="btn btn-outline-dark btn-block">Create</button>
+                            <button form="creategroup" type="submit" class="btn btn-outline-dark btn-block">Create</button>
                         </div>
                     </form>
                 </div>

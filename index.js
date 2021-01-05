@@ -12,6 +12,7 @@ const articles=require('./routes/articles');
 const contests=require('./routes/contests');
 const login=require('./routes/login');
 const Documentation=require('./routes/Documentation');
+const Groups = require("./routes/groups");
 const profile=require("./routes/profile");
 const logout= require("./routes/logout");
 const verify=require('./routes/verifiyToken');
@@ -48,7 +49,7 @@ app.use(signup);
 app.use(Documentation);
 app.use(profile);
 app.use(logout);
-
+app.use(Groups);
 
 
 
@@ -56,16 +57,10 @@ app.use(logout);
 app.get('/teams',(req,res)=>{
     res.render('teams',{Current_Nav:'__'});
 });
-app.get('/groups',(req,res)=>{
-    res.render('groups',{Current_Nav:'__'});
-});
-app.get('/createteam',(req,res)=>{
-    res.render('createteam',{Current_Nav:'__'});
-});
-app.get('/creategroup',(req,res)=>{
-    res.render('creategroup',{Current_Nav:'__'});
-});
 
+app.get('/createteam', (req, res) => {
+    res.render('createteam', { Current_Nav: '__' });
+});
 
 // if the request reach to this then there are 404
 app.use(verify,(req,res)=>{

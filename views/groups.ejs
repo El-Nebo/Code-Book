@@ -35,107 +35,44 @@ tinypng
             </div>
             <div class="row">
                 <div class="col-md-10 mx-md-auto">
-                    <div class="d-block my-3 mx-3 p-4 bg-white border rounded">
-                        <div class="row">
-                            <div class="col">
-                                <h2 class="text-dark h2 mb-4">Abbas</h2>
-                                <ul class="list-group ">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <p>nebo
-                                            <a href="#" class="ml-2 text-muted">view profile</a>
-                                        </p>
-                                        <span class="badge badge-success">rating</span>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <p>gaser
-                                            <a href="#" class="ml-2 text-muted">view profile</a>
-                                        </p>
-                                        <span class="badge badge-success">rating</span>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <p>mahdy
-                                            <a href="#" class="ml-2 text-muted">view profile</a>
-                                        </p>
-                                        <span class="badge badge-success">rating</span>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <p>shabro
-                                            <a href="#" class="ml-2 text-muted">view profile</a>
-                                        </p>
-                                        <span class="badge badge-success">rating</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="d-block my-3 mx-3 p-4 bg-white border rounded">
-                        <div class="row">
-                            <div class="col">
-                                <h2 class="text-dark h2 mb-4">Abbas</h2>
-                                <ul class="list-group ">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <p>nebo
-                                            <a href="#" class="ml-2 text-muted">view profile</a>
-                                        </p>
-                                        <span class="badge badge-success">rating</span>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <p>gaser
-                                            <a href="#" class="ml-2 text-muted">view profile</a>
-                                        </p>
-                                        <span class="badge badge-success">rating</span>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <p>mahdy
-                                            <a href="#" class="ml-2 text-muted">view profile</a>
-                                        </p>
-                                        <span class="badge badge-success">rating</span>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <p>shabro
-                                            <a href="#" class="ml-2 text-muted">view profile</a>
-                                        </p>
-                                        <span class="badge badge-success">rating</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <% ArrGroups.forEach(Group=> {%>
+                        <a href="groups/<%= Group.Name%>" >
+                            <div class="d-block my-3 mx-3 p-4 bg-white border rounded">
+                                <div class="row">
+                                    <div class="col">
+                                        <h2 class="text-dark h2 mb-4">
+                                            <%= Group.Name %>
+                                        </h2>
+                                        <a class="join" data-doc="<%= Group.Name %>"> Join </a>
+                                        <ul class="list-group ">
+                                            <li
+                                                class="list-group-item d-flex justify-content-between align-items-center">
+                                                <p>
+                                                    <%= Group.Owner %>
+                                                        <a href="profile/<%=Group.Owner%>" class="ml-2 text-muted">view
+                                                            profile</a>
+                                                </p>
+                                                <span class="badge badge-success">Owner</span>
+                                            </li>
 
-                    <div class="d-block my-3 mx-3 p-4 bg-white border rounded">
-                        <div class="row">
-                            <div class="col">
-                                <h2 class="text-dark h2 mb-4">Abbas</h2>
-                                <ul class="list-group ">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <p>nebo
-                                            <a href="#" class="ml-2 text-muted">view profile</a>
-                                        </p>
-                                        <span class="badge badge-success">rating</span>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <p>gaser
-                                            <a href="#" class="ml-2 text-muted">view profile</a>
-                                        </p>
-                                        <span class="badge badge-success">rating</span>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <p>mahdy
-                                            <a href="#" class="ml-2 text-muted">view profile</a>
-                                        </p>
-                                        <span class="badge badge-success">rating</span>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <p>shabro
-                                            <a href="#" class="ml-2 text-muted">view profile</a>
-                                        </p>
-                                        <span class="badge badge-success">rating</span>
-                                    </li>
-                                </ul>
+                                            <% Group.Admins.forEach( Admin=> { %>
+                                                <li
+                                                    class="list-group-item d-flex justify-content-between align-items-center">
+                                                    <p>
+                                                        <%=Admin%>
+                                                            <a href="profile/<%=Admin%>" class="ml-2 text-muted">view
+                                                                profile</a>
+                                                    </p>
+                                                    <span class="badge badge-success">Admin</span>
+                                                </li>
+                                                <% });%>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </a>
+                        <%});%>
 
                 </div>
             </div>

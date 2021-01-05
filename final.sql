@@ -84,7 +84,13 @@ foreign key  (Group_Member) REFERENCES users (Handle) ,
 foreign key (Group_Name) REFERENCES Groups_  (Name_),
 PRIMARY KEY  (Group_Name ,Group_Member )       );
 
-
+create table NyZaKa.Group_Admins (
+  Group_Name  varchar(40) NOT NULL,
+  Group_Admin  varchar(100)  NOT NULL,
+  foreign key  (Group_Admin) REFERENCES users (Handle) ,
+  foreign key (Group_Name) REFERENCES Groups_  (Name_),
+  PRIMARY KEY  (Group_Name ,Group_Admin ) 
+);
 
 create table NyZaKa.Participate (
 Contest_ID        int    NOT NULL ,
@@ -158,3 +164,4 @@ Submission_Status       varchar(20)        NOT NULL ,
 foreign key  (Problem_ID) REFERENCES Problem (Problem_ID) ,
 foreign key  (Team_Name) REFERENCES Teams (Name_) ,
 PRIMARY KEY  (ID)       );
+

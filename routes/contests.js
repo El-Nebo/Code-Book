@@ -15,6 +15,7 @@ router.get('/contests', verify, (req, res) => {
 
         if (results.length == 0)
             res.render('contests', { user: req.user, Current_Nav: 'contests', Contests });
+        
         results.forEach((element, index) => {
             let query2 = `select COUNT(*) AS Problems_Count FROM Contest_Problems WHERE Contest_ID = ${element.Contest_ID};`;
             connection.query(query2, (err, result, ff) => {
