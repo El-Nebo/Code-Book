@@ -14,7 +14,7 @@
          let  contests = 'nav-item hvr-underline-from-left';
          let  articles = 'nav-item hvr-underline-from-left';
          let  Documentation = 'nav-item hvr-underline-from-left';
-
+         let groups = 'nav-item hvr-underline-from-left';
             switch(Current_Nav){
                 case 'Home':
                 Home = 'nav-item active';
@@ -30,6 +30,9 @@
                 break;
                 case 'Documentation':
                 Documentation = 'nav-item active';
+                break;
+                case 'groups':
+                groups = 'nav-item active';
                 break;
             }
         %>
@@ -50,6 +53,9 @@
               </li>
               <li class= '<%= Documentation%>' >
                 <a href="/documentations" class="nav-link">Documentation</a>
+              </li>
+              <li class= '<%= groups%>' >
+                <a href="/groups" class="nav-link">Groups</a>
               </li>
             </ul>
             

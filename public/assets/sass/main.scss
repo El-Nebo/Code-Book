@@ -225,7 +225,10 @@ a{
 		right: 5px;
 	}
 }
-
+.join
+{
+	cursor: pointer;
+}
 @include breakpoint('<=xlarge') {
 	
 }

@@ -41,10 +41,16 @@ tinypng
                             <div class="d-block my-3 mx-3 p-4 bg-white border rounded">
                                 <div class="row">
                                     <div class="col">
-                                        <h2 class="text-dark h2 mb-4">
-                                            <%= Group.Name %>
-                                        </h2>
-                                        <a class="join" data-doc="<%= Group.Name %>"> Join </a>
+                                        <div class="d-flex">
+                                            <div class="mr-4">
+                                                <h2 class="text-dark h2 mb-4">
+                                                    <%= Group.Name %>
+                                                </h2>
+                                            </div>
+                                            <div>
+                                                <a class="join btn btn-dark text-light" data-doc="<%= Group.Name %>"> Join </a>
+                                            </div>
+                                        </div>
                                         <ul class="list-group ">
                                             <li
                                                 class="list-group-item d-flex justify-content-between align-items-center">

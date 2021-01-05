@@ -281,6 +281,10 @@ a {
   right: 5px;
 }
 
+.join {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 980px) {
   .slash {
     display: none;

@@ -11,7 +11,7 @@ router.get('/groups', verify, (req, res) => {
         if (error) res.send(error);
 
         if (Groups.length === 0)
-            res.render('groups', { user: req.user, Current_Nav: '__', ArrGroups });
+            res.render('groups', { user: req.user, Current_Nav: 'groups', ArrGroups });
 
         Groups.forEach((element, index1) => { //for each group 
             let adminsquery = `select * from NyZaka.Group_Admins where Group_Name = '${element.Name_}';`;
@@ -25,7 +25,7 @@ router.get('/groups', verify, (req, res) => {
                 };
                 if (Group_Admins.length === 0 && index1 === Groups.length - 1) {
                     ArrGroups.push(group);
-                    res.render('groups', { user: req.user, Current_Nav: '__', ArrGroups });
+                    res.render('groups', { user: req.user, Current_Nav: 'groups', ArrGroups });
                 }
                 if (Group_Admins.length === 0) {
                     ArrGroups.push(group);
@@ -36,7 +36,7 @@ router.get('/groups', verify, (req, res) => {
                     if (index2 === Group_Admins.length - 1)
                         ArrGroups.push(group);
                     if (index1 === Groups.length - 1 && index2 === Group_Admins.length - 1) {
-                        res.render('groups', { user: req.user, Current_Nav: '__', ArrGroups });
+                        res.render('groups', { user: req.user, Current_Nav: 'groups', ArrGroups });
                     }
                 });
 
@@ -52,7 +52,7 @@ router.get('/groups', verify, (req, res) => {
 router.get('/creategroup', verify, (req, res) => {
     if (req.user.Acsess == "student" || !req.user)
         res.status(403).send("access denied");
-    res.render('creategroup', { Current_Nav: '__' });
+    res.render('creategroup', {user: req.user, Current_Nav: 'groups' });
 });
 
 router.post('/creategroup', verify, (req, res) => {
@@ -127,7 +127,7 @@ router.get('/groups/:id', verify, (req, res) => {
                     group.Members.push(Group_Members[i].Group_Member);
                 }
                 
-                res.render('group', { user: req.user, Current_Nav: '__', group });
+                res.render('group', { user: req.user, Current_Nav: 'groups', group });
             });
         });
     });

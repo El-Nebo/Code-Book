@@ -1,11 +1,16 @@
 const router = require('express').Router();
 const connection=require('./server');
 const bcrypt=require('bcryptjs');
-router.get('/signup',(req,res)=>{
+const { verify } = require('jsonwebtoken');
+const verifiyToken = require('./verifiyToken');
+router.get('/signup',verifiyToken,(req,res)=>{
+    if(req.user)
+        res.redirect('profile');
     res.render('signup',{user:req.user,Current_Nav:'__'});
 })
 router.post('/signup',async(req,res)=>{
 
+    
     //1- check there are not exist email
     let user={"username":req.body.username,
               "email":req.body.email,
