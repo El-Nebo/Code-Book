@@ -55,7 +55,7 @@ router.get('/Documentation/:id',verify,(req,res)=>{
 });
 router.get('/createdocumentation',verify,(req,res)=>{
     let token = req.user;
-    if(token.user.Acsess=="student"||!req.user)
+    if(!req.user||token.user.Acsess=="student")
         res.status(403).send("access denied");
     res.render('createdocumentation',{user:req.user, Current_Nav:'Documentation'});
 });

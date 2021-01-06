@@ -16,6 +16,7 @@ const Groups = require("./routes/groups");
 const profile=require("./routes/profile");
 const logout= require("./routes/logout");
 const verify=require('./routes/verifiyToken');
+const search=require('./routes/search');
 const { resolveInclude } = require('ejs');
 const { nextTick } = require('process');
 app.set('view engine','ejs');
@@ -50,7 +51,7 @@ app.use(Documentation);
 app.use(profile);
 app.use(logout);
 app.use(Groups);
-
+app.use(search);
 
 
 //TO TEST ONLY 
@@ -65,5 +66,5 @@ app.get('/createteam', (req, res) => {
 // if the request reach to this then there are 404
 app.use(verify,(req,res)=>{
     let token = req.user;
-    res.render("404",{token,Current_Nav:'__'});
+    res.render("404",{user: req.user,Current_Nav:'__'});
 })

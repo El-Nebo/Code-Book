@@ -57,9 +57,16 @@
               <li class= '<%= groups%>' >
                 <a href="/groups" class="nav-link">Groups</a>
               </li>
+              
             </ul>
             
-            <ul class="navbar-nav ">
+            <ul class="navbar-nav">
+              <form class="search d-flex justify-content-end align-items-center" method="POST" action="/search" id="searchForm" autocomplete="on">
+                <button form="searchForm" type="submit">
+                  <i class="fas fa-search mr-2" aria-hidden="true" style="color: #9A9DA0; cursor: pointer;"></i>
+                </button>
+                <input form="searchForm" class="form-control"  name="search" type="text" placeholder="Search" aria-label="Search" id="Search">
+              </form>
                 <%if(typeof user !== 'undefined'){%>
                     <li class="nav-item">
                         <a href="/profile" class="nav-link"><%=user.user.Handle%></a>
@@ -73,7 +80,7 @@
                     <li class="nav-item">
                         <a href="/login" class="nav-link">Log In</a>
                     </li>
-                    <span class="slash">/</span>
+                    <!-- <span class="slash">/</span> -->
                     <li class="nav-item">
                         <a href="/signup" class="nav-link">Sign Up</a>
                     </li>

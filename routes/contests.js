@@ -4,8 +4,7 @@ const connection = require('./server');
 const verify = require('./verifiyToken');
 router.get('/contests', verify, (req, res) => {
     let token = req.user;
-
-
+    
     let Contests = [];
 
     let query = `select * from NyZaKa.contest;`;
@@ -70,7 +69,7 @@ router.get('/Contest/:id', verify, (req, res) => {
 
 router.get('/createcontest', verify, (req, res) => {
     let token = req.user;
-    if (token.user.Acsess == "student" || !req.user)
+    if ( !req.user||token.user.Acsess == "student")
         res.status(403).send("access denied");
     res.render('createcontest_problemsnum', { user: req.user, Current_Nav: 'contests' });
 });

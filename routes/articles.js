@@ -63,7 +63,7 @@ router.get('/articles/:id',verify,(req,res)=>{
 });
 router.get('/createarticle',verify,(req,res)=>{
     let token = req.user;
-    if(token.user.Acsess=="student"||!req.user)
+    if(!req.user||token.user.Acsess=="student")
         res.status(403).send("access denied");
     res.render('createarticle',{user:req.user, Current_Nav:'articles'});
 });

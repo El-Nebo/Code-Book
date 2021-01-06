@@ -50,7 +50,7 @@ router.get('/groups', verify, (req, res) => {
 });
 
 router.get('/creategroup', verify, (req, res) => {
-    if (req.user.Acsess == "student" || !req.user)
+    if(!req.user||token.user.Acsess=="student")
         res.status(403).send("access denied");
     res.render('creategroup', {user: req.user, Current_Nav: 'groups' });
 });

@@ -19,5 +19,52 @@
 			top: 7px;
     		left: 99px;
 		}
+		.search{
+			button{
+				border: none;
+				margin: 0;
+				padding: 0;
+				width: auto;
+				overflow: visible;
+				background: transparent;
+				color: inherit;
+				font: inherit;
+				line-height: normal;
+				-webkit-font-smoothing: inherit;
+				-moz-osx-font-smoothing: inherit;
+				-webkit-appearance: none;
+				outline: none;
+			}
+			input{
+				width: 50%;
+				animation-duration: .5s;
+				animation-fill-mode:both;
+				background-color: #343A40;
+				border: none;
+				color: #9A9DA0;
+				&::placeholder {
+					color: #9A9DA0;
+					font-size: 18px;
+				}
+				&.active{
+					animation-name: example;
+					color: #343A40;
+				}
+				&.dactive{
+					animation-name: example1;
+				}
+			}
+		}
 	}
+}
+@keyframes example {
+    0% {width:50%;}
+    100% {
+		width:100%;
+		background-color: white;
+	}
+}
+@keyframes example1 {
+    0% {width:100%;background-color: white;}
+    100% {width:50%;background-color:#343A40;}
 }
