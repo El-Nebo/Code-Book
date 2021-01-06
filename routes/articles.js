@@ -37,11 +37,11 @@ router.get('/articles/:id',verify,(req,res)=>{
 
 
     let query=`SELECT * FROM NyZaKa.Articles WHERE id=${req.params.id}`;
-    console.log(req.params.id);
+    //console.log(req.params.id);
     connection.query(query,  (error, results, fields)=> {
         if (error) throw error;
         //res.render('/Blogs'); 
-        console.log(results.length)
+        //console.log(results.length)
         if(!results.length)
             res.render('404',{user:req.user, Current_Nav:'__'});
         else
@@ -51,9 +51,11 @@ router.get('/articles/:id',verify,(req,res)=>{
                 ArtName:results[0].ArtName,
                 Topic:results[0].Topic,
                 Statment:results[0].Statment,
-                Art_date:results[0].Art_date.toLocaleDateString("en-US").split("-")
+                Art_date:results[0].Art_date.toLocaleDateString("en-US").split("-"),
+                Writer:results[0].Writer
             }
-        
+                //console.log(req.user.user.Handle);
+                //console.log(results[0].Writer);
             res.render('article',{user:req.user, Current_Nav:'articles',article:article});
         }
     });
@@ -61,6 +63,21 @@ router.get('/articles/:id',verify,(req,res)=>{
 
 
 });
+
+router.delete('/articles/:id',verify,(req,res)=>{
+    let token = req.user;
+    let query=`DELETE FROM NyZaKa.Articles WHERE id=${parseInt(req.params.id)}`;
+    connection.query(query,  (error, results, fields)=> {
+        if (error) throw error;
+        /*if(!results.length)
+            res.render('404',{user:req.user, Current_Nav:'__'});
+        else
+        {
+        }*/
+        res.json({redirect:'/articles'});
+    });
+});
+
 router.get('/createarticle',verify,(req,res)=>{
     let token = req.user;
     if(!req.user||token.user.Acsess=="student")
@@ -77,6 +94,7 @@ router.post('/createarticle',verify,(req,res)=>{
     let year = date_ob.getFullYear();
 
     let article={
+
         name: req.body.title,
         Topic:req.body.Topic,
         body:req.body.body,

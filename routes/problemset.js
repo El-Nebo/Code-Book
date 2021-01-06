@@ -28,12 +28,9 @@ router.get('/problemset',verify,(req,res)=>{
 
 router.get('/problems/:id',verify,(req,res)=>{
     let token = req.user;
-
     let query = `SELECT * FROM NyZaKa.Problem WHERE problem_id=${req.params.id}`;
     connection.query(query, (error, results, fields) => {
-        if (error) throw error;
-        
-        
+        if (error) throw error;  
         let Problem = {
             ID: results[0].Problem_ID,
             Name: results[0].NameProblem,
@@ -43,17 +40,13 @@ router.get('/problems/:id',verify,(req,res)=>{
             statement: results[0].statment,
             Input_Format: results[0].Input_Format,
             Output_Format: results[0].Output_Format,
-            Sample_Input: results[0].Sample_Input,
+            Sample_Input: results[0].Sample_Input,  
             Sample_Output: results[0].Sample_Output,
             Score: results[0].Score,
             Difficulty: results[0].Difficulty
         };
         res.render('problem', { user: req.user, Current_Nav: 'problemset', Problem });
     });
-
-
-
-
 });
 
 router.get('/createproblem',verify,(req,res)=>{
