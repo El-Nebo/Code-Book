@@ -106,6 +106,7 @@ router.post('/createarticle',verify,(req,res)=>{
     connection.query(query,  async(error, results, fields)=> {
         if (error) res.send(error);
         //res.render('/Blogs'); 
+        res.redirect('/articles');
         res.send("Articles added successfully");
     });
     //res.render('createarticle',{user:req.user, Current_Nav:'articles'});

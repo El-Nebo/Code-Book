@@ -84,6 +84,26 @@ tinypng
 				<div class="row">
                 
                     <div class="col-md-8 mx-md-auto">
+                        <h2>Problems</h2>
+                        <%listproblems.forEach(e=>{ %>
+                        <div class="boxFriend d-flex">
+							<a href="/problems/<%=e.ID%>"> <%= e.Name %> </a>
+			
+                        </div>
+                        <%});%>
+                        
+                    </div>
+                </div>
+			</div>
+		</section>
+
+
+
+		<section class="">
+			<div class="container">
+				<div class="row">
+                
+                    <div class="col-md-8 mx-md-auto">
                         <h2>Groups</h2>
                         <%listGroups.forEach(e=>{ %>
                         <div class="boxFriend d-flex">
@@ -96,6 +116,8 @@ tinypng
                 </div>
 			</div>
 		</section>
+
+		
 
 			
 
