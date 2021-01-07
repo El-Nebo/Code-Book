@@ -27,7 +27,7 @@ tinypng
         <h1 class="p-4 text-dark bg-white h1">
             <div class="row">
                 <div class="col-md-10 mx-md-auto">
-                    <%= Problem.Name%>;
+                    <%= Problem.Name%>
                 </div>
             </div>
         </h1>
@@ -75,12 +75,12 @@ tinypng
         </div>
         <div class="row bg-white p-4">
             <div class="col-md-10 mx-md-auto">
-                <form action="post">
+                <form action="/problems/<%= Problem.ID %> " method = "POST" id = "submission">
                     <div class="form-group">
-                        <label for="output" class="h2">Output</label>
-                        <textarea class="form-control bg-light" id="output" rows="3"></textarea>
+                        <label form = "submission" for="output" class="h2">Output</label>
+                        <textarea form = "submission" class="form-control bg-light" id="output" name = "output" rows="3"></textarea>
                     </div>
-                    <div class="form-group">
+                    <div form = "submission" type = "submit" class="form-group">
                         <button class="btn btn-outline-success btn-lg px-5 d-block mx-auto">
                             Submit Output
                         </button>

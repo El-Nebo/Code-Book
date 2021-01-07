@@ -17,6 +17,7 @@ const profile=require("./routes/profile");
 const logout= require("./routes/logout");
 const verify=require('./routes/verifiyToken');
 const search=require('./routes/search');
+const submission = require ('./routes/submission');
 const { resolveInclude } = require('ejs');
 const { nextTick } = require('process');
 app.set('view engine','ejs');
@@ -52,7 +53,7 @@ app.use(profile);
 app.use(logout);
 app.use(Groups);
 app.use(search);
-
+app.use(submission);
 
 //TO TEST ONLY 
 app.get('/teams',(req,res)=>{
