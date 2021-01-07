@@ -136,10 +136,10 @@ router.post('/search', verify, (req, res) => {
             arrGroups.push(group);
 
         });
-<<<<<<< HEAD
+
         //console.log(arrGroups);
         res.render('searchResult', {user: req.user,listUsers:arrUsers,listArt:arrArt,listDoc:arrDoc,listGroups:arrGroups, Current_Nav: 'groups' });
-=======
+
 
         // res.render('searchResult', {user: req.user,listUsers:arrUsers,listArt:arrArt,listDoc:arrDoc,listGroups:arrGroups, Current_Nav: 'groups' });
     });
@@ -175,7 +175,6 @@ router.post('/search', verify, (req, res) => {
         });
         res.render('searchResult', { user: req.user, listUsers: arrUsers, listArt: arrArt, listDoc: arrDoc, listGroups: arrGroups, listproblems: arrproblems, Current_Nav: 'groups' });
 
->>>>>>> baf60dd40bb992af176452308ab71b232afb8e55
     });
 
 
