@@ -79,6 +79,7 @@ router.post('/createdocumentation',verify,(req,res)=>{
     connection.query(query,  async(error, results, fields)=> {
         if (error) res.send(error);
         //res.render('/Blogs'); 
+        res.redirect('/documentations');
         res.send("documentation added successfully");
     });
     //res.render('createarticle',{user:req.user, Current_Nav:'articles'});
