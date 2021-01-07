@@ -26,16 +26,17 @@ tinypng
 				<div class="row">
                 
                     <div class="col-md-8 mx-md-auto">
-                        <h2>Users</h2>
-                        <%listUsers.forEach(e=>{ %>
-                        <div class="boxFriend d-flex">
-                            <a href="/profile/<%=e.Handle%>"><%=e.Handle%></a>
-                            <!-- <div class="d-flex justify-content-end">
-                                 <a href="" class="iconRemove"><i class="fas fa-users-slash"></i></a>
-                            </div> -->
-                        </div>
-                        <%});%>
-                        
+						<h2>Users</h2>
+						<%if(arrUsers.length){%>
+							<%arrUsers.forEach(e=>{ %>
+								<div class="boxFriend d-flex">
+									<a href="/profile/<%=e.Handle%>"><%=e.Handle%></a>
+									<!-- <div class="d-flex justify-content-end">
+										<a href="" class="iconRemove"><i class="fas fa-users-slash"></i></a>
+									</div> -->
+								</div>
+							<%});%>
+                        <%}%>
                     </div>
                 </div>
 			</div>
@@ -47,51 +48,54 @@ tinypng
 				<div class="row">
                 
                     <div class="col-md-8 mx-md-auto">
-                        <h2>Articles</h2>
-                        <%listArt.forEach(e=>{ %>
-                        <div class="boxFriend d-flex">
-							<a href="/articles/<%=e.ID%>"><%=e.ArtName%></a>
+						<h2>Articles</h2>
+						<%if(arrArt.length){%>
+							<%arrArt.forEach(e=>{ %>
+							<div class="boxFriend d-flex">
+								<a href="/articles/<%=e.ID%>"><%=e.ArtName%></a>
+					
+							</div>
+							<%});%>
+						<%}%>
+                    </div>
+                </div>
+			</div>
+		</section>
+
+		<section class="">
+			<div class="container">
+				<div class="row">
+                
+                    <div class="col-md-8 mx-md-auto">
+						<h2>Documentation</h2>
+						<%if(arrDoc.length){%>
+							<%arrDoc.forEach(e=>{ %>
+							<div class="boxFriend d-flex">
+								<a href="/Documentation/<%=e.ID%>"><%=e.DocName%></a>
+					
+							</div>
+							<%});%>
+                        <%}%>
+                    </div>
+                </div>
+			</div>
+		</section>
+
+
+		<section class="">
+			<div class="container">
+				<div class="row">
+                
+                    <div class="col-md-8 mx-md-auto">
+						<h2>Problems</h2>
+						<%if(arrproblems.length){%>
+							<%arrproblems.forEach(e=>{ %>
+							<div class="boxFriend d-flex">
+								<a href="/problems/<%=e.ID%>"> <%= e.Name %> </a>
 				
-                        </div>
-                        <%});%>
-                        
-                    </div>
-                </div>
-			</div>
-		</section>
-
-		<section class="">
-			<div class="container">
-				<div class="row">
-                
-                    <div class="col-md-8 mx-md-auto">
-                        <h2>Documentation</h2>
-                        <%listDoc.forEach(e=>{ %>
-                        <div class="boxFriend d-flex">
-							<a href="/Documentation/<%=e.ID%>"><%=e.DocName%></a>
-				
-                        </div>
-                        <%});%>
-                        
-                    </div>
-                </div>
-			</div>
-		</section>
-
-
-		<section class="">
-			<div class="container">
-				<div class="row">
-                
-                    <div class="col-md-8 mx-md-auto">
-                        <h2>Problems</h2>
-                        <%listproblems.forEach(e=>{ %>
-                        <div class="boxFriend d-flex">
-							<a href="/problems/<%=e.ID%>"> <%= e.Name %> </a>
-			
-                        </div>
-                        <%});%>
-                        
+							</div>
+							<%});%>
+                        <%}%>
                     </div>
                 </div>
 			</div>
@@ -105,9 +109,9 @@ tinypng
                 
                     <div class="col-md-8 mx-md-auto">
                         <h2>Groups</h2>
-                        <%listGroups.forEach(e=>{ %>
+                        <%arrGroups.forEach(e=>{ %>
                         <div class="boxFriend d-flex">
-							<a href="/groups/<%=e.ID%>"><%=e.Name_%></a>
+							<a href="/groups/<%=e.Name%>"><%=e.Name_%></a>
 				
                         </div>
                         <%});%>

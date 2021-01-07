@@ -33,150 +33,148 @@ router.post('/search', verify, (req, res) => {
 
         });
 
-        //  res.render('searchResult', {user: req.user,listUsers:arrUsers,listArt:arrArt,listDoc:arrDoc,listGroups:arrGroups, Current_Nav: 'groups' });
+        connection.query(findarticles, (error, results, fields) => {
+            if (error) throw error;
+            results.forEach(element => {
+                let article = {
+                    ID: element.ID,
+                    ArtName: element.ArtName,
+                    Topic: element.Topic,
+                    Statment: element.Statment,
+                    Art_date: element.Art_date.toLocaleDateString("en-US").split("-")
+                }
+                arrArt.push(article);
+            });
+            connection.query(findarticlesbywriter, (error, results, fields) => {
+                if (error) throw error;
+                results.forEach(element => {
+                    let article = {
+                        ID: element.ID,
+                        ArtName: element.ArtName,
+                        Topic: element.Topic,
+                        Statment: element.Statment,
+                        Art_date: element.Art_date.toLocaleDateString("en-US").split("-")
+                    }
+                    arrArt.push(article);
+                });
+            });
+            connection.query(finddocumentation, (error, results, fields) => {
+                if (error) throw error;
+                results.forEach(element => {
+                    let documentation = {
+                        ID: element.ID,
+                        DocName: element.DocName,
+                        Topic: element.Topic,
+                        Statment: element.Statment,
+                        Doc_date: element.Doc_date.toLocaleDateString("en-US").split("-")
+                    }
+                    arrDoc.push(documentation);
+        
+                });
+            });
+            connection.query(finddocumentationbywriter, (error, results, fields) => {
+                if (error) throw error;
+                results.forEach(element => {
+                    let documentation = {
+                        ID: element.ID,
+                        DocName: element.DocName,
+                        Topic: element.Topic,
+                        Statment: element.Statment,
+                        Doc_date: element.Doc_date.toLocaleDateString("en-US").split("-")
+                    }
+                    arrDoc.push(documentation);
+        
+                });
+            });
+
+            connection.query(findgroupbywriter, (error, results, fields) => {
+                if (error) throw error;
+                results.forEach(element => {
+                    let group = {
+                        Name: element.Name_,
+                        Owner: element.Owner_,
+                        Admins: []
+                    };
+                    arrGroups.push(group);
+        
+                });
+
+                connection.query(findgroup, (error, results, fields) => {
+                    if (error) throw error;
+                    results.forEach(element => {
+                        let group = {
+                            Name: element.Name_,
+                            Owner: element.Owner_,
+                           // ID: element.ID,
+                            Admins: []
+                        };
+                        arrGroups.push(group);
+            
+                    });
+                    connection.query(findproblem, (error, results, fields) => {
+                        if (error) throw error;
+                        results.forEach(element => {
+                            let Problem = {
+                                ID: element.Problem_ID,
+                                Name: element.NameProblem,
+                                statement: element.statment,
+                            }
+                            arrproblems.push(Problem);
+                
+                        });
+                
+                        connection.query(findproblembywriter, (error, results, fields) => {
+                            if (error) throw error;
+                            results.forEach((element, index) => {
+                                let Problem = {
+                                    ID: element.Problem_ID,
+                                    Name: element.NameProblem,
+                                    statement: element.statment,
+                                }
+                                arrproblems.push(Problem);
+                                
+                    
+                            });
+                    
+                        });
+                    
+                        res.render('searchResult', { user: req.user, arrUsers,  arrArt, arrDoc, arrGroups, arrproblems, Current_Nav: '__' });
+                    });
+
+            });
+
+        });
     });
 
 
 
-    connection.query(findarticles, (error, results, fields) => {
-        if (error) throw error;
-        results.forEach(element => {
-            let article = {
-                ID: element.ID,
-                ArtName: element.ArtName,
-                Topic: element.Topic,
-                Statment: element.Statment,
-                Art_date: element.Art_date.toLocaleDateString("en-US").split("-")
-            }
-            arrArt.push(article);
+    
 
-        });
-
-        // res.render('searchResult', {user: req.user,listUsers:arrUsers,listArt:arrArt,listDoc:arrDoc,listGroups:arrGroups, Current_Nav: 'groups' });
-    });
-
-    connection.query(findarticlesbywriter, (error, results, fields) => {
-        if (error) throw error;
-        results.forEach(element => {
-            let article = {
-                ID: element.ID,
-                ArtName: element.ArtName,
-                Topic: element.Topic,
-                Statment: element.Statment,
-                Art_date: element.Art_date.toLocaleDateString("en-US").split("-")
-            }
-            arrArt.push(article);
-
-        });
-
-        // res.render('searchResult', {user: req.user,listUsers:arrUsers,listArt:arrArt,listDoc:arrDoc,listGroups:arrGroups, Current_Nav: 'groups' });
-    });
+    
 
 
 
 
-    connection.query(finddocumentation, (error, results, fields) => {
-        if (error) throw error;
-        results.forEach(element => {
-            let documentation = {
-                ID: element.ID,
-                DocName: element.DocName,
-                Topic: element.Topic,
-                Statment: element.Statment,
-                Doc_date: element.Doc_date.toLocaleDateString("en-US").split("-")
-            }
-            arrDoc.push(documentation);
+    
 
-        });
-
-        // res.render('searchResult', {user: req.user,listUsers:arrUsers,listArt:arrArt,listDoc:arrDoc,listGroups:arrGroups, Current_Nav: 'groups' });
-    });
-
-    connection.query(finddocumentationbywriter, (error, results, fields) => {
-        if (error) throw error;
-        results.forEach(element => {
-            let documentation = {
-                ID: element.ID,
-                DocName: element.DocName,
-                Topic: element.Topic,
-                Statment: element.Statment,
-                Doc_date: element.Doc_date.toLocaleDateString("en-US").split("-")
-            }
-            arrDoc.push(documentation);
-
-        });
-
-        // res.render('searchResult', {user: req.user,listUsers:arrUsers,listArt:arrArt,listDoc:arrDoc,listGroups:arrGroups, Current_Nav: 'groups' });
-    });
+    
 
 
-    connection.query(findgroupbywriter, (error, results, fields) => {
-        if (error) throw error;
-        results.forEach(element => {
-            let group = {
-                Name: element.Name_,
-                Owner: element.Owner_,
-                Admins: []
-            };
-            arrGroups.push(group);
+    
 
-        });
-
-        //res.render('searchResult', {user: req.user,listUsers:arrUsers,listArt:arrArt,listDoc:arrDoc,listGroups:arrGroups, Current_Nav: 'groups' });
-    });
-
-    connection.query(findgroup, (error, results, fields) => {
-        if (error) throw error;
-        results.forEach(element => {
-            let group = {
-                Name: element.Name_,
-                Owner: element.Owner_,
-                Admins: []
-            };
-            arrGroups.push(group);
-
-        });
+    
 
         //console.log(arrGroups);
-        res.render('searchResult', {user: req.user,listUsers:arrUsers,listArt:arrArt,listDoc:arrDoc,listGroups:arrGroups, Current_Nav: 'groups' });
+        //res.render('searchResult', {user: req.user,listUsers:arrUsers,listArt:arrArt,listDoc:arrDoc,listGroups:arrGroups, Current_Nav: 'groups' });
 
 
         // res.render('searchResult', {user: req.user,listUsers:arrUsers,listArt:arrArt,listDoc:arrDoc,listGroups:arrGroups, Current_Nav: 'groups' });
     });
 
 
-    connection.query(findproblem, (error, results, fields) => {
-        if (error) throw error;
-        results.forEach(element => {
-            let Problem = {
-                ID: element.Problem_ID,
-                Name: element.NameProblem,
-                statement: element.statment,
-            }
-            arrproblems.push(Problem);
-
-        });
-
-        // res.render('searchResult', {user: req.user,listUsers:arrUsers,listArt:arrArt,listDoc:arrDoc,listGroups:arrGroups,listproblems:arrproblems, Current_Nav: 'groups' });
-    });
+    
 
 
-    connection.query(findproblembywriter, (error, results, fields) => {
-        if (error) throw error;
-        results.forEach((element, index) => {
-            let Problem = {
-                ID: element.Problem_ID,
-                Name: element.NameProblem,
-                statement: element.statment,
-            }
-            arrproblems.push(Problem);
-            
-
-        });
-        res.render('searchResult', { user: req.user, listUsers: arrUsers, listArt: arrArt, listDoc: arrDoc, listGroups: arrGroups, listproblems: arrproblems, Current_Nav: 'groups' });
-
-    });
-
-
+    
 });
 module.exports = router;

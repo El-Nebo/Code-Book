@@ -82,7 +82,7 @@ router.post('/createproblem' , verify, (req,res) => {
     connection.query(query, async (error, results, fields) => {
         if (error) res.send(error);
         //res.render('/Blogs'); 
-        res.redirect('/problemset');
+        //res.redirect('/problemset');
         res.send("Problem added successfully");
     });
 
