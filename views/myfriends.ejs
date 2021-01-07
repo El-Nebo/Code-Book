@@ -33,16 +33,26 @@ tinypng
             <div class="row">
                 
                 <div class="col-md-8 mx-md-auto">
+                    <h2>Followers</h2>
+                    <%console.log(listFollowers)%>
 
-                    <%listFriends.forEach(e=>{ %>
-                    <div class="boxFriend d-flex">
-                        <a href="<%=e%>"><%=e%></a>
-                        <!-- <div class="d-flex justify-content-end">
-                             <a href="" class="iconRemove"><i class="fas fa-users-slash"></i></a>
-                        </div> -->
-                    </div>
+                    <%if(listFollowers.length==0){%>
+                        <p>no followers!</p>
+                    <%}%>
+                    <%listFollowers.forEach(e=>{ %>
+                        <div class="boxFriend d-flex">
+                            <a href="<%=e%>"><%=e%></a>
+                        </div>
                     <%});%>
-                    
+                    <h2>Following</h2>
+                    <%if(listFollowing.length==0){%>
+                        <p>no followers!</p>
+                    <%}%>
+                    <%listFollowing.forEach(e=>{ %>
+                        <div class="boxFriend d-flex">
+                            <a href="<%=e%>"><%=e%></a>
+                        </div>
+                    <%});%>
                 </div>
             </div>
 

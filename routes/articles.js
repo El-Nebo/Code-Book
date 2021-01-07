@@ -98,7 +98,7 @@ router.post('/createarticle',verify,(req,res)=>{
         name: req.body.title,
         Topic:req.body.Topic,
         body:req.body.body,
-        date:year + "-" + month + "-" + date,
+        date:new Date().toISOString().slice(0, 19).replace('T', ' '),
         writer:token.user.Handle
     };
     console.log(article);

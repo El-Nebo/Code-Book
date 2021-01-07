@@ -132,7 +132,7 @@ router.post('/search',verify,(req,res)=>{
             arrGroups.push(group);
 
         });
-        
+        //console.log(arrGroups);
         res.render('searchResult', {user: req.user,listUsers:arrUsers,listArt:arrArt,listDoc:arrDoc,listGroups:arrGroups, Current_Nav: 'groups' });
     });
 

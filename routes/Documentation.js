@@ -72,7 +72,7 @@ router.post('/createdocumentation',verify,(req,res)=>{
         name: req.body.title,
         Topic:req.body.Topic,
         body:req.body.body,
-        date:year + "-" + month + "-" + date,
+        date:new Date().toISOString().slice(0, 19).replace('T', ' '),
         writer:token.user.Handle
     };
     let query =`insert into NyZaKa.Documentation(DocName,Topic,Statment,Doc_date,Writer) values("${documentation.name}","${documentation.Topic}","${documentation.body}","${documentation.date}","${documentation.writer}");`;

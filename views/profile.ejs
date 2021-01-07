@@ -35,7 +35,11 @@ tinypng
 							<%=user.user.Acsess%>
 						</h2>
 						<h2> <i class="far fa-star mr-2"></i>
-							<%="Rating : "+Profile.Rating %> 
+							<%if(Profile.Rating==null){%>
+								Rating : 0
+							<%}else{%>
+								<%="Rating : "+Profile.Rating %> 
+							<%}%>
 						</h2>
 						<%if(user.user.Acsess=="developer"){%>
 							<h2><i class="fas fa-check mr-2"></i>
@@ -52,7 +56,10 @@ tinypng
 							Number of problems solved: <%=Profile.NumSolvedProblem %>
 					   </h2> 
 						<h2><i class="fas fa-star mr-2"></i>
-							Friend of: <%=Profile.NumFriends %> users
+							Following: <%=Profile.NumFriends %> users
+						</h2>
+						<h2><i class="fas fa-star mr-2"></i>
+							Followers: <%=Profile.NumFollowee %> users
 						</h2>
                         <a href="profile/myfriends">View My Friends</a>
 						<h2><i class="far fa-envelope mr-2"></i>

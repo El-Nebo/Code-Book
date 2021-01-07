@@ -25,6 +25,7 @@
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "nodejs": "^0.0.0",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "util": "^0.12.3"
   }
 }

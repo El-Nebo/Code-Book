@@ -15,7 +15,7 @@ PRIMARY KEY  (Handle)       );
 
 create table NyZaKa.Contest (
 Contest_ID    int       NOT NULL  AUTO_INCREMENT,
-Day_          Date           NOT NULL ,
+Day_          Datetime           NOT NULL ,
 Hour_         Time           NOT NULL ,
 Duration      int           NOT NULL ,
 PRIMARY KEY  (Contest_ID)       );
@@ -26,7 +26,7 @@ ID       		 	int        NOT NULL AUTO_INCREMENT,
 DocName         char(50)  NOT NULL ,
 Topic      			varchar(20)     NOT NULL ,
 Statment      		varchar(1000)     NOT NULL ,
-Doc_date     			date         	NOT NULL ,
+Doc_date     			DATETIME         	NOT NULL ,
 Writer       	varchar(100)        NOT NULL ,
 foreign key  (Writer) REFERENCES users (Handle) ,
 PRIMARY KEY  (ID)       );
@@ -38,7 +38,7 @@ ID        int       NOT NULL AUTO_INCREMENT,
 ArtName       char(50)  NOT NULL,
 Topic      varchar(20)     NOT NULL ,
 Statment      varchar(1000)          NOT NULL ,
-Art_date     date         NOT NULL ,
+Art_date     DATETIME         NOT NULL ,
 Writer       varchar(100)        NOT NULL ,
 foreign key  (Writer) REFERENCES users (Handle) ,
 PRIMARY KEY  (ID)       );
