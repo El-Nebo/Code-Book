@@ -1,3 +1,4 @@
+//Join Group button
 const joins = document.querySelectorAll('a.join');
 
 
@@ -14,3 +15,6 @@ joins.forEach(join => {
             .catch(err => console.log(err));
     });
 });
+//---------------------------------
+
+

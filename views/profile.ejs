@@ -35,26 +35,24 @@ tinypng
 							<%=user.user.Acsess%>
 						</h2>
 						<h2> <i class="far fa-star mr-2"></i>
-							<%="Rating : "+user.user.Rate_max %> 
+							<%="Rating : "+Profile.Rating %> 
 						</h2>
-						
 						<%if(user.user.Acsess=="developer"){%>
 							<h2><i class="fas fa-check mr-2"></i>
-								Number of problems made: 50
+								Number of problems made: <%=Profile.NumMadeProblem %> 
 							</h2>
 							<h2><i class="fas fa-check mr-2"></i>
-								Number of articles write: 20
+								Number of articles write: <%=Profile.NumArticles %>
 							</h2>
 							<h2><i class="fas fa-check mr-2"></i>
-								Number of documentations write: 20
+								Number of documentations write: <%=Profile.NumDocumentations %>
 							</h2>
-						<%}else{%>
+						<%}%>
 						<h2><i class="fas fa-check mr-2"></i> 
-							Number of problems solved: 500
+							Number of problems solved: <%=Profile.NumSolvedProblem %>
 					   </h2> 
-					   <%  }%>
 						<h2><i class="fas fa-star mr-2"></i>
-							Friend of: <%=numberOfFriends%> users
+							Friend of: <%=Profile.NumFriends %> users
 						</h2>
                         <a href="profile/myfriends">View My Friends</a>
 						<h2><i class="far fa-envelope mr-2"></i>
