@@ -39,10 +39,10 @@ tinypng
                     <form action="/createcontest" method="POST" id="formcontest">
                         <% for(let i = 1 ; i <= ProblemsNumber ; i++){ %>
                             <div class="card-body text-center">
-                                <h2>Please fill all data to crete problem number <%=i%></h2>
+                                <h2>Please fill all data to create problem number <%=i%></h2>
                                 <hr>
                                 <div class="d-md-flex d-block justify-content-between mb-3">
-                                    <input form="formcontest" type="text" placeholder="problem <%=i%> name"
+                                    <input form="formcontest" required type="text" placeholder="problem <%=i%> name"
                                         class="form-control mb-md-0 mb-3 form-control-lg" type="text" id="title<%=i%>"
                                         name="title<%=i%>">
                                 </div>
@@ -51,54 +51,54 @@ tinypng
                                     <input form="formcontest" type="text" placeholder="Problem tag (for ex: dfs,bfs...)" class="form-control mb-md-0 mb-3 form-control-lg" type="text" id="problemTag" name="problemTag">
                                 </div>-->
 
-                                <textarea form="formcontest" placeholder="Problem <%=i%> Description"
+                                <textarea form="formcontest" required placeholder="Problem <%=i%> Description"
                                     class="form-control mb-3 form-control-lg" type="text" id="body<%=i%>" name="body<%=i%>"></textarea>
 
                                 <div class="d-md-flex d-block justify-content-between mb-3">
-                                    <input form="formcontest" type="text" placeholder="problem <%=i%> input format"
+                                    <input form="formcontest" required type="text" placeholder="problem <%=i%> input format"
                                         class="form-control mb-md-0 mb-3 form-control-lg" type="text"
                                         id="problemInputFormat<%=i%>" name="problemInputFormat<%=i%>">
                                 </div>
                                 <div class="d-md-flex d-block justify-content-between mb-3">
-                                    <input form="formcontest" type="text" placeholder="problem <%=i%> output format"
+                                    <input form="formcontest" required type="text" placeholder="problem <%=i%> output format"
                                         class="form-control mb-md-0 mb-3 form-control-lg" type="text"
                                         id="problemOutputFormat<%=i%>" name="problemOutputFormat<%=i%>">
                                 </div>
 
 
                                 <div class="d-md-flex d-block justify-content-between mb-3">
-                                    <input form="formcontest" type="text" placeholder="Sample <%=i%> input"
+                                    <input form="formcontest" required type="text" placeholder="Sample <%=i%> input"
                                         class="form-control mb-md-0 mb-3 form-control-lg" type="text" id="SampleInput<%=i%>"
                                         name="SampleInput<%=i%>">
                                 </div>
                                 <div class="d-md-flex d-block justify-content-between mb-3">
-                                    <input form="formcontest" type="text" placeholder="Sample <%=i%> output"
+                                    <input form="formcontest" required type="text" placeholder="Sample <%=i%> output"
                                         class="form-control mb-md-0 mb-3 form-control-lg" type="text" id="SampleOutput<%=i%>"
                                         name="SampleOutput<%=i%>">
                                 </div>
 
                                 <div class="d-md-flex d-block justify-content-between mb-3">
-                                    <input form="formcontest" type="text" placeholder="problem <%=i%> input"
+                                    <input form="formcontest" required type="text" placeholder="problem <%=i%> input"
                                         class="form-control mb-md-0 mb-3 form-control-lg" type="text" id="problemInput<%=i%>"
                                         name="problemInput<%=i%>">
                                 </div>
                                 <div class="d-md-flex d-block justify-content-between mb-3">
-                                    <input form="formcontest" type="text" placeholder="problem <%=i%> output"
+                                    <input form="formcontest" required type="text" placeholder="problem <%=i%> output"
                                         class="form-control mb-md-0 mb-3 form-control-lg" type="text" id="problemOutput<%=i%>"
                                         name="problemOutput<%=i%>">
                                 </div>
                                 <div class="d-md-flex d-block justify-content-between mb-3">
-                                    <input form="formcontest" type="text" placeholder="Problem <%=i%> Topic"
+                                    <input form="formcontest" required type="text" placeholder="Problem <%=i%> Topic"
                                         class="form-control mb-md-0 mb-3 form-control-lg" type="text" id="Topic<%=i%>"
                                         name="Topic<%=i%>">
                                 </div>
                                 <div class="d-md-flex d-block justify-content-between mb-3">
-                                    <input form="formcontest" type="number" placeholder="Problem <%=i%> Score"
+                                    <input form="formcontest" required type="number" placeholder="Problem <%=i%> Score"
                                         class="form-control mb-md-0 mb-3 form-control-lg" type="number" id="Score<%=i%>"
                                         name="Score<%=i%>">
                                 </div>
                                 <div class="d-md-flex d-block justify-content-between mb-3">
-                                    <input form="formcontest" type="number" placeholder="Problem <%=i%> Difficulty"
+                                    <input form="formcontest" required type="number" placeholder="Problem <%=i%> Difficulty"
                                         class="form-control mb-md-0 mb-3 form-control-lg" type="number" id="Difficulty<%=i%>"
                                         name="Difficulty<%=i%>">
                                 </div>
