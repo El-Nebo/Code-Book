@@ -60,10 +60,53 @@ router.get('/articles/:id',verify,(req,res)=>{
         }
     });
 
-
-
 });
+router.get('/articles/edit/:id',verify,(req,res)=>{
+    let token = req.user;
+    let query=`SELECT * FROM NyZaKa.Articles WHERE id=${req.params.id}`;
+    connection.query(query,  (error, results, fields)=> {
+        if (error) throw error;
+        //res.render('/Blogs'); 
+        if(!results.length)
+            res.render('404',{user:req.user, Current_Nav:'__'});
+        else{
+            let article={
+                ID:results[0].ID,
+                ArtName:results[0].ArtName,
+                Topic:results[0].Topic,
+                Statment:results[0].Statment,
+                Art_date:results[0].Art_date.toLocaleDateString("en-US").split("-"),
+                Writer:results[0].Writer
+            }
+        
+            res.render('editarticle',{user:req.user, Current_Nav:'articles',article:article});
+        }
+    });
+});
+router.post('/articles/edit/:id',verify,(req,res)=>{
+    let token = req.user;
+    if(token.user.Acsess=="student"||!req.user)
+        res.status(403).send("access denied");
+    let date_ob = new Date();
+    let date = ("0" + date_ob.getDate()).slice(-2);
+    let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+    let year = date_ob.getFullYear();
 
+    let article={
+        id:parseInt(req.params.id),
+        name: req.body.title,
+        Topic:req.body.Topic,
+        body:req.body.body,
+        date:new Date().toISOString().slice(0, 19).replace('T', ' '),
+        writer:token.user.Handle
+    };
+    let query =`update NyZaKa.Articles set ArtName='${article.name}', Topic='${article.Topic}' ,Statment='${article.body}', Art_date='${article.date}' where ID=${article.id};`;
+    connection.query(query,  async(error, results, fields)=> {
+        if (error) res.send(error);
+        res.redirect(`/articles/${article.id}`);
+    });
+    //res.render('createarticle',{user:req.user, Current_Nav:'articles'});
+});
 router.delete('/articles/:id',verify,(req,res)=>{
     let token = req.user;
     let query=`DELETE FROM NyZaKa.Articles WHERE id=${parseInt(req.params.id)}`;
