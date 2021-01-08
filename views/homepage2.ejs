@@ -15,7 +15,16 @@ tinypng
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<script src="https://kit.fontawesome.com/85999f6d09.js" crossorigin="anonymous"></script>
-
+	<style>
+		#showcase {
+			background-image: linear-gradient(45deg, rgb(41, 43, 44), rgba(91, 192, 222, .4)), url(images/mountains.jpg);
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: fixed;
+			min-height: 80vh;
+		}
+	</style>
 </head>
 
 <body class="">
@@ -23,44 +32,318 @@ tinypng
 
 	<%- include('./partials/nav.ejs') %>
 
-		<section>
-			<div class="row mb-3">
-				<div class="col py-3" style="background-color: #fff;">
-					<div class="container">
-						<h2 class="display-4"><i class="fas fa-home mr-2" style="font-size: 45px;"></i> Home Page
-						</h2>
-					</div>
 
+
+
+	<header id="showcase" class="d-flex flex-column justify-content-center">
+		<div class="container text-white text-center">
+			<div class="d-flex flex-column justify-content-center py-5">
+				<h1 class="display-3 text-capitalize py-3">do what you dream of...</h1>
+				<p class="lead py-3 text-light">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, doloremque.
+				</p>
+				<div class="py-3">
+					<code class="text-light">if(registered)</code>
+					<a href="/login"
+						class="btn btn-outline-info text-white text-capitalize align-self-center mx-2 px-4">
+						Log In
+					</a>
+					<code class="text-light">else</code>
+					<a href="/signup"
+						class="btn btn-outline-info text-white text-capitalize align-self-center mx-2 px-4">
+						Sign Up
+					</a>
+					<code class="text-light">;</code>
 				</div>
 			</div>
-			<div class="container">
-				Welcome to code book 
+		</div>
+	</header>
+	<div id="boxes" class="py-5 bg-white">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="card text-center mb-3 mb-md-0 border-info">
+						<div class="card-body">
+							<h3 class="card-title text-capitalize text-info">
+								be better
+							</h3>
+							<p class="card-text text-muted">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, sequi!
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="card text-center mb-3 mb-md-0 border-info bg-info">
+						<div class="card-body">
+							<h3 class="card-title text-capitalize text-light">
+								be smarter
+							</h3>
+							<p class="card-text text-light">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, sequi!
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="card text-center mb-3 mb-md-0 border-info">
+						<div class="card-body">
+							<h3 class="card-title text-capitalize text-info">
+								be faster
+							</h3>
+							<p class="card-text text-muted">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, sequi!
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="card text-center mb-3 mb-md-0 border-info bg-info">
+						<div class="card-body">
+							<h3 class="card-title text-capitalize text-light">
+								be stronger
+							</h3>
+							<p class="card-text text-light">
+								Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore, delectus.
+							</p>
+						</div>
+					</div>
+				</div>
 			</div>
-		</section>
-		<%- include('./partials/footer.ejs') %>
-		<!-- Scripts -->
+		</div>
+	</div>
+	<section id="about" class="py-5 text-center bg-light">
+		<div class="container">
+			<h2 class="h2 text-info text-capitalize pb-4">why this website ?</h2>
+			<p class="lead w-75 d-inline-block border-bottom pb-4">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem animi asperiores, nihil explicabo quis
+				numquam at quaerat sequi in repellendus.
+			</p>
+			<div id="accordion">
+				<div class="card">
+					<div class="card-header">
+						<h5>
+							<a href="#collapse1" data-parent="#accordion" data-toggle="collapse" class="text-info">
+								<i class="fas fa-arrow-circle-down"></i> Get Inspired
+							</a>
+						</h5>
+					</div>
 
-		<%- include('./partials/Scripts.ejs') %>
-		<script>
+					<div id="collapse1" class="collapse show">
+						<div class="card-body">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis ea iste a doloremque,
+							cumque, debitis eum vel ipsum architecto aut, recusandae totam ullam aperiam. Nesciunt
+							expedita officiis animi quam corporis optio inventore facilis sint et nulla
+							in, repellat debitis dolor at nisi quo, unde temporibus. Quos nisi nostrum officia, illo.
+						</div>
+					</div>
+				</div>
 
-				// $('body').scrollspy({target:'#nav'})
+				<div class="card">
+					<div class="card-header">
+						<h5>
+							<a href="#collapse2" data-parent="#accordion" data-toggle="collapse" class="text-info"><i
+									class="fas fa-arrow-circle-down"></i>
+								Open Your Mind
+							</a>
+						</h5>
+					</div>
 
-				// // Smooth Scrolling
-				// $("nav a").on('click', function (event) {
-				// if (this.hash !== "") {
-				// 	event.preventDefault();
+					<div id="collapse2" class="collapse">
+						<div class="card-body">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis ea iste a doloremque,
+							cumque, debitis eum vel ipsum architecto aut, recusandae totam ullam aperiam. Nesciunt
+							expedita officiis animi quam corporis optio inventore facilis sint et nulla
+							in, repellat debitis dolor at nisi quo, unde temporibus. Quos nisi nostrum officia, illo.
+						</div>
+					</div>
+				</div>
 
-				// 	const hash = this.hash;
+				<div class="card">
+					<div class="card-header">
+						<h5>
+							<a href="#collapse3" data-parent="#accordion" data-toggle="collapse" class="text-info"><i
+									class="fas fa-arrow-circle-down"></i>
+								Collapse Three
+							</a>
+						</h5>
+					</div>
 
-				// 	$('html, body').animate({
-				// 	scrollTop: $(hash).offset().top
-				// 	}, 800, function () {
+					<div id="collapse3" class="collapse">
+						<div class="card-body">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis ea iste a doloremque,
+							cumque, debitis eum vel ipsum architecto aut, recusandae totam ullam aperiam. Nesciunt
+							expedita officiis animi quam corporis optio inventore facilis sint et nulla
+							in, repellat debitis dolor at nisi quo, unde temporibus. Quos nisi nostrum officia, illo.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+	<section id="authors" class="py-5 text-center">
+		<div class="container">
+			<h2 class="h2 text-info text-capitalize pb-4">meet the authors</h2>
+			<p class="lead w-75 d-inline-block border-bottom pb-4 mb-5">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem animi asperiores, nihil explicabo quis
+				numquam at quaerat sequi in repellendus.
+			</p>
+			<div class="row">
+				<div class="col-md-6 col-lg-3 ">
+					<div class="card mb-3 mb-lg-0">
+						<div class="card-body">
+							<img src="../images/developer.jpg" alt="" class="img-fluid rounded-circle mb-3 w-50">
+							<h3>Mohamed Nabawie</h3>
+							<h4 class="text-muted">CEO</h4>
+							<p class="card-text">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur magni minus
+								nesciunt
+								odio blanditiis cumque.
+							</p>
+							<div class="d-flex justify-content-center ">
+								<div class="p-3">
+									<a href="#" class="text-info">
+										<i class="fab fa-facebook"></i>
+									</a>
+								</div>
+								<div class="p-3">
+									<a href="#" class="text-info">
+										<i class="fab fa-twitter "></i>
+									</a>
+								</div>
+								<div class="p-3">
+									<a href="#" class="text-info">
+										<i class="fab fa-instagram"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3 ">
+					<div class="card mb-3 mb-lg-0">
+						<div class="card-body">
+							<img src="../images/developer.jpg" alt="" class="img-fluid rounded-circle mb-3 w-50">
+							<h3>Gaser Ashraf</h3>
+							<h4 class="text-muted">CTO</h4>
 
-				// 	//window.location.hash = hash;
-				// 	});
-				// }
-				// });
-		</script>
+							<p class="card-text">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur magni minus
+								nesciunt
+								odio blanditiis cumque.
+							</p>
+							<div class="d-flex justify-content-center ">
+								<div class="p-3">
+									<a href="#" class="text-info">
+										<i class="fab fa-facebook"></i>
+									</a>
+								</div>
+								<div class="p-3">
+									<a href="#" class="text-info">
+										<i class="fab fa-twitter"></i>
+									</a>
+								</div>
+								<div class="p-3">
+									<a href="#" class="text-info">
+										<i class="fab fa-instagram"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3 ">
+					<div class="card mb-3 mb-lg-0">
+						<div class="card-body">
+							<img src="../images/developer.jpg" alt="" class="img-fluid rounded-circle mb-3 w-50 ">
+							<h3>Yousef Elshabrawy</h3>
+							<h4 class="text-muted">Developer</h4>
+							<p class="card-text">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur magni minus
+								nesciunt
+								odio blanditiis cumque.
+							</p>
+							<div class="d-flex justify-content-center ">
+								<div class="p-3">
+									<a href="#" class="text-info">
+										<i class="fab fa-facebook"></i>
+									</a>
+								</div>
+								<div class="p-3">
+									<a href="#" class="text-info">
+										<i class="fab fa-twitter"></i>
+									</a>
+								</div>
+								<div class="p-3">
+									<a href="#" class="text-info">
+										<i class="fab fa-instagram"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3 ">
+					<div class="card ">
+						<div class="card-body">
+							<img src="../images/developer.jpg" alt="" class="img-fluid rounded-circle mb-3 w-50">
+							<h3>Yousef Elmahdy</h3>
+							<h4 class="text-muted">Developer</h4>
+							<p class="card-text">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur magni minus
+								nesciunt
+								odio blanditiis cumque.
+							</p>
+							<div class="d-flex justify-content-center ">
+								<div class="p-3">
+									<a href="#" class="text-info">
+										<i class="fab fa-facebook"></i>
+									</a>
+								</div>
+								<div class="p-3">
+									<a href="#" class="text-info">
+										<i class="fab fa-twitter"></i>
+									</a>
+								</div>
+								<div class="p-3">
+									<a href="#" class="text-info">
+										<i class="fab fa-instagram"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<%- include('./partials/footer.ejs') %>
+	<!-- Scripts -->
+	<%- include('./partials/Scripts.ejs') %>
+	<script>
+		// Init Scrollspy
+		$('body').scrollspy({
+			target: '#main-nav'
+		});
+
+		// Smooth Scrolling
+		$("#main-nav a").on('click', function (event) {
+			if (this.hash !== "") {
+				event.preventDefault();
+
+				const hash = this.hash;
+
+				$('html, body').animate({
+					scrollTop: $(hash).offset().top
+				}, 800, function () {
+
+					window.location.hash = hash;
+				});
+			}
+		});
+	</script>
 </body>
 
 </html>

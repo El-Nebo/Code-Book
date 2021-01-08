@@ -43,7 +43,8 @@ router.get('/Documentation/:id',verify,(req,res)=>{
                 DocName:results[0].DocName,
                 Topic:results[0].Topic,
                 Statment:results[0].Statment,
-                Doc_date:results[0].Doc_date.toLocaleDateString("en-US").split("-")
+                Doc_date:results[0].Doc_date.toLocaleDateString("en-US").split("-"),
+                Writer:results[0].Writer
             }
         
             res.render('Documentation',{user:req.user, Current_Nav:'Documentation',documentation:documentation});
@@ -52,6 +53,14 @@ router.get('/Documentation/:id',verify,(req,res)=>{
 
 
 
+});
+router.delete('/Documentation/:id',verify,(req,res)=>{
+    let token = req.user;
+    let query=`DELETE FROM NyZaKa.Documentation WHERE id=${parseInt(req.params.id)}`;
+    connection.query(query,  (error, results, fields)=> {
+        if (error) throw error;
+        res.json({redirect:'/documentations'});
+    });
 });
 router.get('/createdocumentation',verify,(req,res)=>{
     let token = req.user;
