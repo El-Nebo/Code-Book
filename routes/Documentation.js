@@ -31,7 +31,6 @@ router.get('/Documentation/:id',verify,(req,res)=>{
 
 
     let query=`SELECT * FROM NyZaKa.Documentation WHERE id=${req.params.id}`;
-    console.log(req.params.id);
     connection.query(query,  (error, results, fields)=> {
         if (error) throw error;
         //res.render('/Blogs'); 
@@ -50,10 +49,8 @@ router.get('/Documentation/:id',verify,(req,res)=>{
             res.render('Documentation',{user:req.user, Current_Nav:'Documentation',documentation:documentation});
         }
     });
-
-
-
 });
+
 router.delete('/Documentation/:id',verify,(req,res)=>{
     let token = req.user;
     let query=`DELETE FROM NyZaKa.Documentation WHERE id=${parseInt(req.params.id)}`;
@@ -61,6 +58,53 @@ router.delete('/Documentation/:id',verify,(req,res)=>{
         if (error) throw error;
         res.json({redirect:'/documentations'});
     });
+});
+
+router.get('/Documentation/edit/:id',verify,(req,res)=>{
+    let token = req.user;
+    let query=`SELECT * FROM NyZaKa.Documentation WHERE id=${req.params.id}`;
+    connection.query(query,  (error, results, fields)=> {
+        if (error) throw error;
+        //res.render('/Blogs'); 
+        if(!results.length)
+            res.render('404',{user:req.user, Current_Nav:'__'});
+        else{
+            let documentation={
+                ID:results[0].ID,
+                DocName:results[0].DocName,
+                Topic:results[0].Topic,
+                Statment:results[0].Statment,
+                Doc_date:results[0].Doc_date.toLocaleDateString("en-US").split("-"),
+                Writer:results[0].Writer
+            }
+        
+            res.render('editdocumentation',{user:req.user, Current_Nav:'Documentation',documentation:documentation});
+        }
+    });
+});
+router.post('/Documentation/edit/:id',verify,(req,res)=>{
+    let token = req.user;
+    if(token.user.Acsess=="student"||!req.user)
+        res.status(403).send("access denied");
+    let date_ob = new Date();
+    let date = ("0" + date_ob.getDate()).slice(-2);
+    let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+    let year = date_ob.getFullYear();
+
+    let documentation={
+        id:parseInt(req.params.id),
+        name: req.body.title,
+        Topic:req.body.Topic,
+        body:req.body.body,
+        date:new Date().toISOString().slice(0, 19).replace('T', ' '),
+        writer:token.user.Handle
+    };
+    let query =`update NyZaKa.Documentation set DocName='${documentation.name}', Topic='${documentation.Topic}' ,Statment='${documentation.body}', Doc_date='${documentation.date}' where ID=${documentation.id};`;
+    connection.query(query,  async(error, results, fields)=> {
+        if (error) res.send(error);
+        res.redirect(`/documentation/${documentation.id}`);
+    });
+    //res.render('createarticle',{user:req.user, Current_Nav:'articles'});
 });
 router.get('/createdocumentation',verify,(req,res)=>{
     let token = req.user;
