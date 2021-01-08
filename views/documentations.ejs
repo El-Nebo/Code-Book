@@ -58,7 +58,7 @@ tinypng
 									<h2 class="text-dark h2"><%=documentation.DocName%></h2>
 
 									<p class="text-muted">Last Updated: <%=documentation.Doc_date%></p>
-									<p class="text-dark"><%=documentation.Statment%><span class="text-primary"> Read More »</span></p>
+									<p class="text-dark"><%=documentation.Statment.substring(0, 50)%>....<span class="text-primary"> Read More »</span></p>
 								</div>
 								<div class="col-md-4 align-self-center">
 									<button class="btn btn-success w-100 btn-lg">Read documentation</button>
@@ -70,7 +70,7 @@ tinypng
 				</div>
 			</div>
 		</section>
-
+		<%- include('./partials/footer.ejs') %>
 		<!-- Scripts -->
 
 		<%- include('./partials/Scripts.ejs') %>

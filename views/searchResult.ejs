@@ -21,7 +21,7 @@ tinypng
 		
 		<%- include('./partials/nav.ejs') %>
         
-		<section class="">
+		<section class="f">
 			<div class="container">
 				<div class="row">
                 
@@ -38,13 +38,8 @@ tinypng
 							<%});%>
                         <%}%>
                     </div>
-                </div>
-			</div>
-		</section>
-
-
-		<section class="">
-			<div class="container">
+				</div>
+				
 				<div class="row">
                 
                     <div class="col-md-8 mx-md-auto">
@@ -58,12 +53,9 @@ tinypng
 							<%});%>
 						<%}%>
                     </div>
-                </div>
-			</div>
-		</section>
+				</div>
+				
 
-		<section class="">
-			<div class="container">
 				<div class="row">
                 
                     <div class="col-md-8 mx-md-auto">
@@ -77,16 +69,11 @@ tinypng
 							<%});%>
                         <%}%>
                     </div>
-                </div>
-			</div>
-		</section>
-
-
-		<section class="">
-			<div class="container">
+				</div>
+				
 				<div class="row">
                 
-                    <div class="col-md-8 mx-md-auto">
+					<div class="col-md-8 mx-md-auto">
 						<h2>Problems</h2>
 						<%if(arrproblems.length){%>
 							<%arrproblems.forEach(e=>{ %>
@@ -95,36 +82,31 @@ tinypng
 				
 							</div>
 							<%});%>
-                        <%}%>
-                    </div>
-                </div>
-			</div>
-		</section>
-
-
-
-		<section class="">
-			<div class="container">
+						<%}%>
+					</div>
+				</div>
+	
 				<div class="row">
-                
-                    <div class="col-md-8 mx-md-auto">
-                        <h2>Groups</h2>
-                        <%arrGroups.forEach(e=>{ %>
-                        <div class="boxFriend d-flex">
+					
+					<div class="col-md-8 mx-md-auto">
+						<h2>Groups</h2>
+						<%arrGroups.forEach(e=>{ %>
+						<div class="boxFriend d-flex">
 							<a href="/groups/<%=e.Name%>"><%=e.Name_%></a>
 				
-                        </div>
-                        <%});%>
-                        
-                    </div>
-                </div>
+						</div>
+						<%});%>
+						
+					</div>
+				</div>
+				
 			</div>
-		</section>
-
-		
-
 			
 
+
+		</section>
+
+		<%- include('./partials/footer.ejs') %>
 		<!-- Scripts -->
 		
 		<%- include('./partials/Scripts.ejs') %>

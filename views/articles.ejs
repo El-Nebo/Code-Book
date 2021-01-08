@@ -58,7 +58,7 @@ tinypng
 									<h2 class="text-dark h2"><%=article.ArtName%></h2>
 
 									<p class="text-muted">Last Updated: <%=article.Art_date%></p>
-									<p class="text-dark"><%=article.Statment%><span class="text-primary"> Read More »</span></p>
+									<p class="text-dark"><%=article.Statment.substring(0, 50)%>....<span class="text-primary"> Read More »</span></p>
 								</div>
 								<div class="col-md-4 align-self-center">
 									<button class="btn btn-success w-100 btn-lg">Read Article</button>
@@ -71,6 +71,7 @@ tinypng
 			</div>
 		</section>
 
+		<%- include('./partials/footer.ejs') %>
 		<!-- Scripts -->
 
 		<%- include('./partials/Scripts.ejs') %>

@@ -48,6 +48,12 @@
 	html{
 		height: 100%;
 	}
+	body section{
+		
+			position: relative;
+			min-height: 86.5vh;
+		  
+	}
 	article, aside, details, figcaption, figure,
 	footer, header, hgroup, menu, nav, section {
 		display: block;
@@ -228,6 +234,17 @@ a{
 .join
 {
 	cursor: pointer;
+}
+.boxName
+{
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	margin-right: 5px;
+	background-color: #474f51;
+	color:#D4D9DD;
+	display: flex;
+	justify-content: center;
 }
 @include breakpoint('<=xlarge') {
 	

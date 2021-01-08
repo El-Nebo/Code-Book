@@ -41,12 +41,13 @@ tinypng
 							<%arrArticles.forEach(Art=>{%>
 								<%if(Art.type=="Article"){%>
 									<div class="card w-100 mb-2">
-										<div class="card-header">
-											<a href="/profile/<%=Art.Writer%>"><%=Art.Writer%></a> Write an Article <a href="/articles/<%=Art.ID%>"><%=Art.Topic%></a>
+										<div class="card-header d-flex align-items-center">
+											<div class="boxName"><%=Art.Writer.substring(0,1).toUpperCase()%></div>
+											<a href="/profile/<%=Art.Writer%>"><%=Art.Writer%> </a>	&nbsp;Write an Article	&nbsp;<a href="/articles/<%=Art.ID%>"><%=Art.ArtName%></a>
 										</div>
 										<div class="card-body">
-											<h5 class="card-title"><%=Art.Topic%></h5>
-											<p class="card-text"><%=Art.Statment%></p>
+											<h5 class="card-title h2"><%=Art.Topic%></h5>
+											<p class="card-text"><%=Art.Statment.substring(0, 50)%>...<a href="/articles/<%=Art.ID%>">Read more</a></p>
 										</div>
 										<div class="card-footer">
 											<small class="text-muted">Last updated <%=Art.date.toLocaleDateString("en-US").split("-")%> <%=Art.date.toLocaleTimeString('en-US')%></small>
@@ -54,12 +55,13 @@ tinypng
 									</div>
 								<%}else{%>
 									<div class="card w-100 mb-2">
-										<div class="card-header">
-											<a href="/profile/<%=Art.Writer%>"><%=Art.Writer%></a> Write an Documentation <a href="/documentation/<%=Art.ID%>"><%=Art.Topic%></a>
+										<div class="card-header d-flex align-items-center">
+											<div class="boxName"><%=Art.Writer.substring(0,1).toUpperCase()%></div>
+											<a href="/profile/<%=Art.Writer%>"><%=Art.Writer%></a> &nbsp;Write an Documentation&nbsp; <a href="/documentation/<%=Art.ID%>"><%=Art.DocName%></a>
 										</div>
 										<div class="card-body">
 											<h5 class="card-title"><%=Art.Topic%></h5>
-											<p class="card-text"><%=Art.Statment%></p>
+											<p class="card-text"><%=Art.Statment.substring(0, 50)%>...<a href="/articles/<%=Art.ID%>">Read more</a></p>
 										</div>
 										<div class="card-footer">
 											<small class="text-muted">Last updated <%=Art.date.toLocaleDateString("en-US").split("-")%> <%=Art.date.toLocaleTimeString('en-US')%></small>
@@ -74,6 +76,7 @@ tinypng
 			</div>
 		</section>
 
+		<%- include('./partials/footer.ejs') %>
 		<!-- Scripts -->
 
 		<%- include('./partials/Scripts.ejs') %>
