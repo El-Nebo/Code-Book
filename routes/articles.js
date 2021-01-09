@@ -75,7 +75,7 @@ router.get('/articles/:id',verify,(req,res)=>{
 
 });
 router.get('/articles/edit/:id',verify,(req,res)=>{
-    if(!req.user||token.user.Acsess=="student")
+    if(!req.user||req.user.user.Acsess=="student")
         res.status(403).send("access denied");
     let token = req.user;
     let query=`SELECT * FROM NyZaKa.Articles WHERE id=${req.params.id}`;
