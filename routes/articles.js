@@ -103,7 +103,7 @@ router.post('/articles/edit/:id',verify,(req,res)=>{
     let query =`update NyZaKa.Articles set ArtName='${article.name}', Topic='${article.Topic}' ,Statment='${article.body}', Art_date='${article.date}' where ID=${article.id};`;
     connection.query(query,  async(error, results, fields)=> {
         if (error) res.send(error);
-        res.redirect(`/articles/${article.id}`);
+        res.redirect(`/articles`);
     });
     //res.render('createarticle',{user:req.user, Current_Nav:'articles'});
 });
