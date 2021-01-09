@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const verify = require('./verifiyToken');
 const connection = require('./server');
+const bcrypt=require('bcryptjs');
+
+
 router.get('/profile', verify, (req, res) => {
     //console.log(req.user);
     if (!req.user)
@@ -132,6 +135,40 @@ router.get('/profile/myfriends', verify, (req, res) => {
 
 
 })
+router.get('/profile/updateProfile',verify, (req, res) => {
+    if (!req.user)
+        res.redirect('/login');
+    res.render('updateProfile', { user: req.user, Current_Nav: '__' });
+
+});
+router.post('/profile/updateProfile',verify, async(req, res) => {
+    if (!req.user)
+        res.redirect('/login');
+    
+    const isvaildpass=await bcrypt.compare(req.body.oldpassword,req.user.user.Password_);
+    if(!isvaildpass)
+        res.status(400).send("invalid old password");
+    else
+    {
+        const salt=await bcrypt.genSalt(10);
+        const hashedpassword=await bcrypt.hash(req.body.newpassword,salt);
+        let newuser={
+            email:req.body.email,
+            fname:req.body.fname,
+            lname:req.body.lname,
+            password:hashedpassword,
+        }
+        console.log(newuser);
+        let query =`update NyZaKa.Users set E_mail='${newuser.email}', Fname='${newuser.fname}' ,Lname='${newuser.lname}', Password_='${newuser.password}' where Handle='${req.user.user.Handle}';`;
+        connection.query(query,  async(error, results, fields)=> {
+            if (error) res.send(error);
+            res.clearCookie("token").redirect('/login');
+            //res.redirect(`/profile`);
+        });
+    }
+    //res.render('updateProfile', { user: req.user, Current_Nav: '__' });
+
+});
 router.get('/profile/:handle', verify, (req, res) => {
     //console.log(req.user);
     let handle = req.params.handle;
@@ -154,7 +191,7 @@ router.get('/profile/:handle', verify, (req, res) => {
                 Lname: results[0].Lname,
                 Rate_max: results[0].Rate_max,
             }
-            if (req.user.user.Acsess == "developer") {
+            if (userTemp.Acsess == "developer") {
                 ProfileQuery = `SELECT
                                     (
                                         SELECT COUNT(*)
@@ -196,7 +233,7 @@ router.get('/profile/:handle', verify, (req, res) => {
                                         ) AS ProblemsSolved
                                         
                                     ) AS Rating;`;
-            } else if (req.user.user.Acsess == "student") {
+            } else if (userTemp == "student") {
                 ProfileQuery = `SELECT 
                                     (
                                         SELECT COUNT(*)
@@ -230,7 +267,7 @@ router.get('/profile/:handle', verify, (req, res) => {
 
                 if (!results.length)
                     res.render('404', { user: req.user, Current_Nav: '__' });
-                if (req.user.user.Acsess == "developer") {
+                if (userTemp.Acsess == "developer") {
                     userProfile = {
                         Handle:userTemp.Handle,
                         Acsess:userTemp.Acsess,
@@ -247,7 +284,7 @@ router.get('/profile/:handle', verify, (req, res) => {
                         Rating: results[0].Rating,
                         IsFriend: false
                     };
-                } else if (req.user.user.Acsess == "student") {
+                } else if (userTemp.Acsess == "student") {
                     userProfile = {
                         Handle:userTemp.Handle,
                         Acsess:userTemp.Acsess,
@@ -290,6 +327,7 @@ router.get('/profile/:handle', verify, (req, res) => {
     
     // res.render('user',{user:req.user, Current_Nav: '__'});
 })
+
 router.post('/profile/:handle', verify, (req, res) => {
     let handle = req.params.handle;
     if (!req.user)
@@ -321,4 +359,5 @@ router.delete('/profile/:handle', verify, (req, res) => {
     });
     // res.render('user',{user:req.user, Current_Nav: '__'});
 })
+
 module.exports = router;

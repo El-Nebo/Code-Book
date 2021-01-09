@@ -12,8 +12,8 @@ tinypng
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/assets/css/main.css" />
 	<script src="https://kit.fontawesome.com/85999f6d09.js" crossorigin="anonymous"></script>
 
 </head>
@@ -34,17 +34,15 @@ tinypng
 			<div class="row justify-content-start">
 				<div class="col-md-3 ">
 					<div class=" bg-white border rounded my-3 mx-3">
-						<div class="mx-4 my-2">
-							<h2>c++</h2>
-						</div>
-						<hr>
-						<div class="mx-4 my-2">
-							<h2>c++</h2>
-						</div>
-						<hr>
-						<div class="mx-4 my-2">
-							<h2>c++</h2>
-						</div>
+						<%arrTopics.forEach( (T,index)=>{%>
+
+							<div class="mx-4 my-2">
+								<a href="/articles/Topics/<%=T%>"><%=T%></a>
+							</div>
+							<%if(index!=arrTopics.length-1){%>
+								<hr>
+							<%}%>
+						<% })%>
 					</div>
 				</div>
 				<div class="col-md-8">

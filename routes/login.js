@@ -31,15 +31,16 @@ router.post('/login',async(req,res)=>{
             const isvaildpass=await bcrypt.compare(req.body.password,user.Password_);
             if(!isvaildpass)
                 res.status(400).send("invalid password");
-            
+            else{
                 //create token
-            const token = jwt.sign({user},"1234");
-            res.cookie('token', token, {
-                secure: false, // set to true if your using https
-                httpOnly: true,
-              });
-            //console.log(res.header('authorization'));
-            res.send("login in success");
+                const token = jwt.sign({user},"1234");
+                res.cookie('token', token, {
+                    secure: false, // set to true if your using https
+                    httpOnly: true,
+                });
+                //console.log(res.header('authorization'));
+                res.send("login in success");
+            }
         }
         else
             res.send("email doesn't exists please sign up");

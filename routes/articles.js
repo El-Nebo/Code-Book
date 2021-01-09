@@ -21,7 +21,20 @@ router.get('/articles',verify,(req,res)=>{
             arrArticles.push(article);
         });
        // console.log(arrArticles);
-        res.render('articles',{user:req.user, Current_Nav:'articles',articles:arrArticles});
+       let arrTopics=[];
+       let getTopic=`select DISTINCT Topic from NyZaKa.Articles`
+       connection.query(getTopic,  async (error, results, fields)=> {
+            if (error) res.send(error);
+            if(results.length!=0)
+            {
+                results.forEach(t=>{
+                    arrTopics.push(t.Topic);
+                });
+            }
+            //console.log(arrTopics);
+            res.render('articles',{user:req.user,arrTopics, Current_Nav:'articles',articles:arrArticles});
+       });
+        
     });
     
 });
@@ -62,6 +75,8 @@ router.get('/articles/:id',verify,(req,res)=>{
 
 });
 router.get('/articles/edit/:id',verify,(req,res)=>{
+    if(!req.user||token.user.Acsess=="student")
+        res.status(403).send("access denied");
     let token = req.user;
     let query=`SELECT * FROM NyZaKa.Articles WHERE id=${req.params.id}`;
     connection.query(query,  (error, results, fields)=> {
@@ -85,7 +100,7 @@ router.get('/articles/edit/:id',verify,(req,res)=>{
 });
 router.post('/articles/edit/:id',verify,(req,res)=>{
     let token = req.user;
-    if(token.user.Acsess=="student"||!req.user)
+    if(!req.user||token.user.Acsess=="student")
         res.status(403).send("access denied");
     let date_ob = new Date();
     let date = ("0" + date_ob.getDate()).slice(-2);
@@ -129,7 +144,7 @@ router.get('/createarticle',verify,(req,res)=>{
 });
 router.post('/createarticle',verify,(req,res)=>{
     let token = req.user;
-    if(token.user.Acsess=="student"||!req.user)
+    if(!req.user||token.user.Acsess=="student")
         res.status(403).send("access denied");
     let date_ob = new Date();
     let date = ("0" + date_ob.getDate()).slice(-2);
@@ -154,4 +169,53 @@ router.post('/createarticle',verify,(req,res)=>{
     });
     //res.render('createarticle',{user:req.user, Current_Nav:'articles'});
 });
+
+
+router.get('/articles/Topics/:topic',verify,(req,res)=>{
+    let token = req.user;
+
+
+
+    let query=`SELECT * FROM NyZaKa.Articles WHERE Topic='${req.params.topic}'`;
+    let arrArticles=[];
+    //console.log(req.params.id);
+    connection.query(query,  (error, results, fields)=> {
+        if (error) throw error;
+        //res.render('/Blogs'); 
+        //console.log(results.length)
+        if(!results.length)
+            res.render('404',{user:req.user, Current_Nav:'__'});
+        else
+        {
+            results.forEach(element => {
+                let article={
+                    ID:element.ID,
+                    ArtName:element.ArtName,
+                    Topic:element.Topic,
+                    Statment:element.Statment,
+                    Art_date:element.Art_date.toLocaleDateString("en-US").split("-")
+                }
+                arrArticles.push(article);
+            });
+                
+            let arrTopics=[];
+            let getTopic=`select DISTINCT Topic from NyZaKa.Articles`
+            connection.query(getTopic,  async (error, results, fields)=> {
+                 if (error) res.send(error);
+                 if(results.length!=0)
+                 {
+                     results.forEach(t=>{
+                         arrTopics.push(t.Topic);
+                     });
+                 }
+                 //console.log(arrTopics);
+                 res.render('articles',{user:req.user,arrTopics, Current_Nav:'articles',articles:arrArticles});
+            });
+            
+
+        }
+    });
+
+});
+
 module.exports = router;

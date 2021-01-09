@@ -39,7 +39,7 @@ tinypng
                     <p class="text-muted mb-3">
                         <%=article.Statment%>
                     </p>
-                    <%if(user.user.Acsess=="developer" && user.user.Handle==article.Writer){%>
+                    <%if(user&&user.user.Acsess=="developer" && user.user.Handle==article.Writer){%>
                     <a href="/articles/edit/<%=article.ID%>" class="btn btn-success mr-2"> <i
                             class="far fa-edit mr-1"></i> Update</a>
                     <a href="" class="btn btn-danger delete" data-articleId="<%=article.ID%>"> <i
