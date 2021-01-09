@@ -114,7 +114,7 @@ router.post('/Documentation/edit/:id',verify,(req,res)=>{
     let query =`update NyZaKa.Documentation set DocName='${documentation.name}', Topic='${documentation.Topic}' ,Statment='${documentation.body}', Doc_date='${documentation.date}' where ID=${documentation.id};`;
     connection.query(query,  async(error, results, fields)=> {
         if (error) res.send(error);
-        res.redirect(`/documentation/${documentation.id}`);
+        res.redirect(`/documentation`);
     });
     //res.render('createarticle',{user:req.user, Current_Nav:'articles'});
 });
