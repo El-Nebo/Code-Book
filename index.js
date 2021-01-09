@@ -36,17 +36,17 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended:true}));
 app.use(cors());
 app.use(cookieParser());
-
-
+app.use(express.json());
 
 app.use(homepage);
 app.use(articles);
 app.use(contests);
 app.use(problemset);
 app.use(login);
+app.use(profile);
 app.use(signup);
 app.use(Documentation);
-app.use(profile);
+
 app.use(logout);
 app.use(Groups);
 app.use(search);

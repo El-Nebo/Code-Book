@@ -34,6 +34,7 @@ tinypng
                         <h2 class="text-muted">
 							<%=user.user.Acsess%>
 						</h2>
+						<a href="profile/updateProfile"><i class="fas fa-cog mr-2"></i>Update profile</a>
 						<h2> <i class="far fa-star mr-2"></i>
 							<%if(Profile.Rating==null){%>
 								Rating : 0
@@ -66,6 +67,7 @@ tinypng
 							<%=user.user.E_mail %>
 						</h2>
 
+						
 						<!--some function if he has a developer token-->
 						<%if(user.user.Acsess=="developer"){%>
 							<div class="mt-3">
