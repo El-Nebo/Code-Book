@@ -360,7 +360,7 @@ router.delete('/profile/:handle', verify, (req, res) => {
     let query = `delete from NyZaKa.Friends WHERE Follower="${req.user.user.Handle}" and Followee="${handle}"`;
     connection.query(query, (error, results, fields) => {
         if (error) throw error;
-        console.log(query, results);
+        //console.log(query, results);
         //res.render('/Blogs'); 
         res.json({ redirect: '/profile/' + handle });
 
