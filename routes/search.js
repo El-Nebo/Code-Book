@@ -135,10 +135,9 @@ router.post('/search', verify, (req, res) => {
                                 
                     
                             });
-                    
+                            res.render('searchResult', { user: req.user, arrUsers,  arrArt, arrDoc, arrGroups, arrproblems, Current_Nav: '__' });
                         });
-                    
-                        res.render('searchResult', { user: req.user, arrUsers,  arrArt, arrDoc, arrGroups, arrproblems, Current_Nav: '__' });
+                        
                     });
 
             });

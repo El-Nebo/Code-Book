@@ -145,11 +145,15 @@ router.post('/profile/updateProfile',verify, async(req, res) => {
     if (!req.user)
         res.redirect('/login');
     
+        
     const isvaildpass=await bcrypt.compare(req.body.oldpassword,req.user.user.Password_);
-    if(!isvaildpass)
+    
+    if(!isvaildpass&&req.body.oldpassword!=req.user.user.Password_)
         res.status(400).send("invalid old password");
-    else
+    else if(isvaildpass || req.body.oldpassword == req.user.user.Password_)
     {
+       
+        
         const salt=await bcrypt.genSalt(10);
         const hashedpassword=await bcrypt.hash(req.body.newpassword,salt);
         let newuser={
@@ -166,6 +170,7 @@ router.post('/profile/updateProfile',verify, async(req, res) => {
             //res.redirect(`/profile`);
         });
     }
+  //  console.log(isvaildpass, req.body.oldpassword == req.user.user.Password_);
     //res.render('updateProfile', { user: req.user, Current_Nav: '__' });
 
 });
@@ -192,6 +197,7 @@ router.get('/profile/:handle', verify, (req, res) => {
                 Rate_max: results[0].Rate_max,
                 Curr_Rate: results[0].Rate_cur
             }
+            
             if (userTemp.Acsess == "developer") {
                 ProfileQuery = `SELECT
                                     (
@@ -234,7 +240,7 @@ router.get('/profile/:handle', verify, (req, res) => {
                                         ) AS ProblemsSolved
                                         
                                     ) AS Rating;`;
-            } else if (userTemp == "student") {
+            } else if (userTemp.Acsess == "student") {
                 ProfileQuery = `SELECT 
                                     (
                                         SELECT COUNT(*)
@@ -262,10 +268,11 @@ router.get('/profile/:handle', verify, (req, res) => {
                                         
                                     ) AS Rating;`;
             }
-
+            //console.log(ProfileQuery);
             connection.query(ProfileQuery, (error, results, fields) => {
                 if (error) throw error;
 
+                
                 if (!results.length)
                     res.render('404', { user: req.user, Current_Nav: '__' });
                 if (userTemp.Acsess == "developer") {
@@ -282,7 +289,7 @@ router.get('/profile/:handle', verify, (req, res) => {
                         NumDocumentations: results[0].NumDocumentations,
                         NumSolvedProblem: results[0].NumSolvedProblem,
                         NumMadeProblem: results[0].NumMadeProblem,
-                        Rating: userTemp.Curr_Rate,
+                        Rating: results[0].Rating,
                         IsFriend: false
                     };
                 } else if (userTemp.Acsess == "student") {
@@ -301,7 +308,7 @@ router.get('/profile/:handle', verify, (req, res) => {
                     }
                 }
                 
-
+                
                     if (req.user) {
                         let queryCheckFriend = `SELECT * FROM NyZaKa.friends WHERE Follower="${req.user.user.Handle}" and Followee="${handle}"`;
                         connection.query(queryCheckFriend, (error, results, fields) => {
@@ -309,7 +316,7 @@ router.get('/profile/:handle', verify, (req, res) => {
                             //res.render('/Blogs'); 
                             if (results.length)
                                 userProfile.IsFriend = true;
-                                console.log(userProfile);
+                                //console.log(userProfile);
                             res.render('user', { user: req.user, Current_Nav: '__', currUser: userProfile });
                             
                         });
@@ -338,7 +345,7 @@ router.post('/profile/:handle', verify, (req, res) => {
     let query = `INSERT INTO NyZaKa.Friends VALUES("${req.user.user.Handle}","${handle}")`;
     connection.query(query, (error, results, fields) => {
         if (error) throw error;
-        console.log(query, results);
+        //console.log(query, results);
         //res.render('/Blogs'); 
         res.json({ redirect: '/profile/' + handle });
 
