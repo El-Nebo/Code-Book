@@ -137,7 +137,7 @@ PRIMARY KEY  (Problem_ID)       );
 create table NyZaKa.Contest_Problems (
 	Contest_ID    int       NOT NULL ,
 	  Problem_ID  int       NOT NULL ,
-      foreign key(contest_ID) references contest (Contest_ID),
+      foreign key(contest_ID) references contest (Contest_ID) ON DELETE CASCADE,
       foreign key(problem_ID) references problem (Problem_ID),
       primary key(Contest_ID,Problem_ID)
 );
@@ -149,7 +149,7 @@ User_      varchar(100)          NOT NULL ,
 Time_     DATETIME         NOT NULL ,
 Output       varchar(1000)       ,
 Submission_Status       varchar(20)        NOT NULL ,
-foreign key  (Problem_ID) REFERENCES Problem (Problem_ID) ,
+foreign key  (Problem_ID) REFERENCES Problem (Problem_ID) ON DELETE CASCADE,
 foreign key  (User_) REFERENCES users (Handle) ,
 PRIMARY KEY  (ID)       );
 
@@ -161,7 +161,7 @@ Team_Name      varchar(60)          NOT NULL ,
 Time_     DATETIME         NOT NULL ,
 Output       varchar(1000)   ,
 Submission_Status       varchar(20)        NOT NULL ,
-foreign key  (Problem_ID) REFERENCES Problem (Problem_ID) ,
+foreign key  (Problem_ID) REFERENCES Problem (Problem_ID) ON DELETE CASCADE,
 foreign key  (Team_Name) REFERENCES Teams (Name_) ,
 PRIMARY KEY  (ID)       );
 
