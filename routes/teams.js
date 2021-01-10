@@ -37,9 +37,10 @@ router.post("/createteam", verify, (req, res) => {
   console.log("createteam post successfully");
   let team = {
     Name: req.body.teamName,
-    Members: req.body.teamMembers.split("&"),
+    Member2: req.body.teamMember2,
+    Member3: req.body.teamMember3,
   };
-  let query = `insert into NyZaKa.Teams values('${team.Name}',0,0,'${team.Members[0]}','${team.Members[1]}','${team.Members[2]}');`;
+  let query = `insert into NyZaKa.Teams values('${team.Name}',0,0,'${req.user.user.Handle}','${team.Member2}','${team.Member3}');`;
   connection.query(query, async (error, result, fields) => {
     if (error) res.send(error);
     res.redirect("/teams");
