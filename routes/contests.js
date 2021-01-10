@@ -41,6 +41,10 @@ router.get('/contests', verify, (req, res) => {
 
 
 })
+router.get('/Contest/standing', verify, (req, res) => {
+    let token = req.user;
+    res.render('standing', { user: req.user, Current_Nav: 'contests'});
+});
 router.get('/Contest/:id', verify, (req, res) => {
     let token = req.user;
 
