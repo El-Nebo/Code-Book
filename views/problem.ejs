@@ -31,7 +31,7 @@ tinypng
                         <%= Problem.Name%>
                     </div>
                     <div class="col-md-6">
-                        <%if(user.user.Acsess=="developer" && user.user.Handle==Problem.Writer){%>
+                        <%if(user&&user.user.Acsess=="developer" && user.user.Handle==Problem.Writer){%>
                         <a href="/problems/edit/<%=Problem.ID%>" class="btn btn-success mr-2"> <i
                                 class="far fa-edit mr-1"></i>
                             Update</a>
@@ -43,7 +43,7 @@ tinypng
                 </div>
             </div>
         </h1>
-        <%if(user.user.Acsess=="developer" && user.user.Handle==Problem.Writer){%><%}%>
+        <%if(user&&user.user.Acsess=="developer" && user.user.Handle==Problem.Writer){%><%}%>
         
 
         <div class="row">

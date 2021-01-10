@@ -190,6 +190,7 @@ router.get('/profile/:handle', verify, (req, res) => {
                 Fname: results[0].Fname,
                 Lname: results[0].Lname,
                 Rate_max: results[0].Rate_max,
+                Curr_Rate: results[0].Rate_cur
             }
             if (userTemp.Acsess == "developer") {
                 ProfileQuery = `SELECT
@@ -281,7 +282,7 @@ router.get('/profile/:handle', verify, (req, res) => {
                         NumDocumentations: results[0].NumDocumentations,
                         NumSolvedProblem: results[0].NumSolvedProblem,
                         NumMadeProblem: results[0].NumMadeProblem,
-                        Rating: results[0].Rating,
+                        Rating: userTemp.Curr_Rate,
                         IsFriend: false
                     };
                 } else if (userTemp.Acsess == "student") {

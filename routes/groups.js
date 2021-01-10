@@ -101,6 +101,7 @@ router.post('/groups/:id', verify, (req, res) => {
 });
 
 router.get('/groups/:id', verify, (req, res) => {
+    console.log(req.params.id);
     let query = `select * from NyZaKa.groups_ where Name_ = '${req.params.id}';`;
     connection.query(query, (error, Group_row) => {
         if (error) res.send(error);

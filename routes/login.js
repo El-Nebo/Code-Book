@@ -29,9 +29,10 @@ router.post('/login',async(req,res)=>{
             //compare password
             
             const isvaildpass=await bcrypt.compare(req.body.password,user.Password_);
-            if(!isvaildpass)
+            
+            if(!isvaildpass&&req.body.password!=user.Password_)
                 res.status(400).send("invalid password");
-            else{
+            else if(isvaildpass||req.body.password==user.Password_){
                 //create token
                 const token = jwt.sign({user},"1234");
                 res.cookie('token', token, {
