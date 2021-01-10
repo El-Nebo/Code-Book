@@ -20,9 +20,9 @@ tinypng
 
 <body class="">
     <!-- Nav tabs -->
-   
+
     <%- include('./partials/nav.ejs') %>
-    
+
     <section>
         <div class="row">
             <div class="col py-3" style="background-color: #fff;">
@@ -34,107 +34,41 @@ tinypng
         </div>
         <div class="row">
             <div class="col-md-10 mx-md-auto">
+                <%console.log(Teams)%>
+                <%Teams.forEach(team => {%>
+                <%console.log(team)%>
                 <div class="d-block my-3 mx-3 p-4 bg-white border rounded">
                     <div class="row">
                         <div class="col">
-                            <h2 class="text-dark h2 mb-4">Abbas</h2>
-                            <ul class="list-group ">
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <p>nebo
-                                        <a href="#" class="ml-2 text-muted">view profile</a>
-                                    </p>
-                                    <span class="badge badge-success">rating</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <p>gaser
-                                        <a href="#" class="ml-2 text-muted">view profile</a>
-                                    </p>
-                                    <span class="badge badge-success">rating</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <p>mahdy
-                                        <a href="#" class="ml-2 text-muted">view profile</a>
-                                    </p>
-                                    <span class="badge badge-success">rating</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <p>shabro
-                                        <a href="#" class="ml-2 text-muted">view profile</a>
-                                    </p>
-                                    <span class="badge badge-success">rating</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                            <div class="d-flex ">
+                                <h2 class="text-dark h2 mb-4 mr-auto"><%=team.name%></h2>
+                                <p class="align-self-center h4 p-1 border rounded text-white mb-4 mr-2 bg-info">max
+                                    rate:<%=team.maxRate%></p>
+                                <p class="align-self-center h4 p-1 border rounded text-white mb-4 mr-2 bg-info">cur
+                                    rate:<%=team.curRate%></p>
+                            </div>
 
-                <div class="d-block my-3 mx-3 p-4 bg-white border rounded">
-                    <div class="row">
-                        <div class="col">
-                            <h2 class="text-dark h2 mb-4">Abbas</h2>
                             <ul class="list-group ">
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <p>nebo
+                                    <p><%=team.member1%>
                                         <a href="#" class="ml-2 text-muted">view profile</a>
                                     </p>
-                                    <span class="badge badge-success">rating</span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <p>gaser
+                                    <p><%=team.member2%>
                                         <a href="#" class="ml-2 text-muted">view profile</a>
                                     </p>
-                                    <span class="badge badge-success">rating</span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <p>mahdy
+                                    <p><%=team.member3%>
                                         <a href="#" class="ml-2 text-muted">view profile</a>
                                     </p>
-                                    <span class="badge badge-success">rating</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <p>shabro
-                                        <a href="#" class="ml-2 text-muted">view profile</a>
-                                    </p>
-                                    <span class="badge badge-success">rating</span>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-
-                <div class="d-block my-3 mx-3 p-4 bg-white border rounded">
-                    <div class="row">
-                        <div class="col">
-                            <h2 class="text-dark h2 mb-4">Abbas</h2>
-                            <ul class="list-group ">
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <p>nebo
-                                        <a href="#" class="ml-2 text-muted">view profile</a>
-                                    </p>
-                                    <span class="badge badge-success">rating</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <p>gaser
-                                        <a href="#" class="ml-2 text-muted">view profile</a>
-                                    </p>
-                                    <span class="badge badge-success">rating</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <p>mahdy
-                                        <a href="#" class="ml-2 text-muted">view profile</a>
-                                    </p>
-                                    <span class="badge badge-success">rating</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <p>shabro
-                                        <a href="#" class="ml-2 text-muted">view profile</a>
-                                    </p>
-                                    <span class="badge badge-success">rating</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <%});%>
 
             </div>
         </div>
