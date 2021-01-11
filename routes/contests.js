@@ -41,10 +41,6 @@ router.get('/contests', verify, (req, res) => {
 
 
 })
-router.get('/Contest/standing', verify, (req, res) => {
-    let token = req.user;
-    res.render('standing', { user: req.user, Current_Nav: 'contests'});
-});
 router.get('/Contest/:id', verify, (req, res) => {
     let token = req.user;
 
@@ -134,6 +130,14 @@ router.post('/createcontest', verify, (req, res) => {
     }
 });
 
+router.get('/Contest/:id/standing' , verify , (req,res) => {
+    let token = req.user;
+    let StandingQuery = `SELECT * FROM nyzaka.participate where contest_id = ${req.params.id} order by score desc;`;
+    connection.query(StandingQuery , (error,standing) =>{
+        if(error)   res.send(error);
+        res.render('conteststanding', { user: req.user, Current_Nav: 'contests' , standing});
+    });
+});
 
 
 

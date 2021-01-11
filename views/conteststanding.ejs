@@ -39,29 +39,17 @@ tinypng
                           <tr>
                             <th scope="col">#</th>
                             <th scope="col">Handle</th>
-                            <th scope="col">#of problems</th>
                             <th scope="col">Score</th>
                           </tr>
                         </thead>
                         <tbody>
+                          <%standing.forEach( (p,index) => {%>
                           <tr>
-                            <th scope="row">1</th>
-                            <td>gaserashraf</td>
-                            <td>3</td>
-                            <td>200</td>
+                            <th scope="row"><%=index+1%></th>
+                            <td><%=p.Participant%></td>
+                            <td><%=p.Score%></td>
                           </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>el-nebo</td>
-                            <td>6</td>
-                            <td>300</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>mahdy</td>
-                            <td>3</td>
-                            <td>200</td>
-                          </tr>
+                          <%});%>
                         </tbody>
                       </table>
 				</div>

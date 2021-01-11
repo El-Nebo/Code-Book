@@ -35,7 +35,8 @@ router.get("/createteam", verify, (req, res) => {
 router.post("/createteam", verify, (req, res) => {
   let team = {
     Name: req.body.teamName,
-    Members: req.body.teamMembers.split("&"),
+    Member2: req.body.teamMember2,
+    Member3: req.body.teamMember3,
   };
   let query1 = `select Name_ from NyZaKa.Teams where Name_='${team.Name}';`;
   connection.query(query1, async (error, result, fields) => {
