@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const verify = require("./verifiyToken");
 const connection = require("./server");
-
 router.get("/teams", verify, (req, res) => {
   let token = req.user;
   let query = `select * from NyZaKa.Teams where Member1='${req.user.user.Handle}' OR Member2='${req.user.user.Handle}' OR Member3='${req.user.user.Handle}';`;
@@ -34,11 +33,27 @@ router.get("/createteam", verify, (req, res) => {
 });
 
 router.post("/createteam", verify, (req, res) => {
-  console.log("createteam post successfully");
   let team = {
     Name: req.body.teamName,
     Members: req.body.teamMembers.split("&"),
   };
+  let query1 = `select Name_ from NyZaKa.Teams where Name_='${team.Name}';`;
+  connection.query(query1, async (error, result, fields) => {
+    if (error) res.send(error);
+    if (result.length == 1) {
+      res.send("Name is already exists, Enter another name.");
+    }
+  });
+  let query2 = `select distinct Handle from NyZaKa.Users where Handle='${team.Members[0]}' or Handle='${team.Members[1]}' or Handle='${team.Members[2]}';`;
+  connection.query(query2, async (error, result, fields) => {
+    if (error) res.send(error);
+    if (result.length < 3) {
+      res.send(
+        "Please, Enter valid usernames, Valid usernames should exist and shouldn't have duplicates."
+      );
+    }
+  });
+
   let query = `insert into NyZaKa.Teams values('${team.Name}',0,0,'${team.Members[0]}','${team.Members[1]}','${team.Members[2]}');`;
   connection.query(query, async (error, result, fields) => {
     if (error) res.send(error);
